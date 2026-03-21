@@ -29,8 +29,12 @@
         <h2 class=" text-base mb-3">Gestion de Tâches</h2>
         <p class="text-base text-[#717182]">Organisez votre journée efficacement</p>
         <div class="flex flex-row rounded-xl justify-between items-center bg-[#ECECF0] p-2">
-            <p class="text-sm flex-1 text-center">Connexion</p>
-            <p class="text-sm  flex-1 rounded-xl text-center bg-white p-2">Inscription</p>
+            <a href="/login" class="flex-1">
+                <p class="text-sm  text-center">Connexion</p>
+            </a>
+            <a href="/register" class="flex-1">
+                <p class="text-sm rounded-xl text-center bg-white p-2">Inscription</p>
+            </a>
         </div>
         {{ form_start(registrationForm) }}
         {{ form_row(registrationForm.email) }}
@@ -40,7 +44,7 @@
         }) }}
         {{ form_row(registrationForm.agreeTerms) }}
         
-        <button type="submit" class="btn">Register</button>
+        <button type="submit" class="btn btn-lg w-100 btn-primary bg-[#030213] text-white pt-1 pb-1 rounded-xl mt-5 mb-5">S'inscrire</button>
         {{ form_end(registrationForm) }}
     </div>
     {{ form_errors(registrationForm) }}
