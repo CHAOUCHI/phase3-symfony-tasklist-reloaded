@@ -20,7 +20,7 @@ final class Version20260317225748 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE user ADD COLUMN username VARCHAR(255) NOT NULL DEFAULT "username"');
+        $this->addSql('ALTER TABLE user ADD COLUMN username VARCHAR(255) NOT NULL DEFAULT "default"');
     }
 
     public function down(Schema $schema): void
