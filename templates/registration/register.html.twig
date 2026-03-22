@@ -7,11 +7,13 @@
             input {
                 background-color: #F3F3F5;
                 min-width: 398px;
-                padding: 12px;
+                padding: 8px;
                 border-radius: 8px;
+                margin:0px 0px;
             }
             label{
                 font-size: 14px;
+                margin:10px 0px;
             }
             div{
                 display: flex;
@@ -29,10 +31,10 @@
         <h2 class=" text-base mb-3">Gestion de Tâches</h2>
         <p class="text-base text-[#717182]">Organisez votre journée efficacement</p>
         <div class="flex flex-row rounded-xl justify-between items-center bg-[#ECECF0] p-2">
-            <a href="/login" class="flex-1">
+            <a href="{{ path('app_login') }}" class="flex-1">
                 <p class="text-sm  text-center">Connexion</p>
             </a>
-            <a href="/register" class="flex-1">
+            <a href="{{ path('app_register') }}" class="flex-1">
                 <p class="text-sm rounded-xl text-center bg-white p-2">Inscription</p>
             </a>
         </div>
