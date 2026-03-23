@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DashboardController!{% endblock %}
+
+{% block body %}
+<section class=" h-screen flex justify-start content-start bg-[#f9fafb]">
+    {# SIDE BAR TASK FOLDERS #}
+    <nav class="flex flex-col flex-15 justify-start content-start p-5">
+        <button class="flex bg-black content-center justify-start p-3 rounded-2xl">
+            <div class="w-5 bg-white h-5"></div>
+            <p class=" text-white text-left">Toutes les tâches</p>
+        </button>
+        <div>
+            <h3 class="text-[#8d94a0]">DOSSIERS</h3>
+            <div class="flex flex-col gap-5">
+                <div class="bg-green-500 h-8">maison</div>
+                <div class="bg-green-500 h-8">maison</div>
+                <div class="bg-green-500 h-8">maison</div>
+                <div class="bg-green-500 h-8">maison</div>
+                <div class="bg-green-500 h-8">maison</div>
+                <div class="bg-green-500 h-8">maison</div>
+                <div class="bg-green-500 h-8">maison</div>
+                <div class="bg-green-500 h-8">maison</div>
+            </div>
+        </div>
+    </nav>
+    {# DASHBOARD #}
+    <main class="flex-85 bg-amber-500">
+        {# DASHBOARD HEADER FILTER and CRUD BUTTONS #}
+        <header class="">
+            {# CRUD BUTTONS #}
+            <div class="menu bg-white">
+                <div>
+                    <h1>Gestion de Tâches</h1>
+                    <p>Organisez vôtre journée efficacement</p>
+                </div>
+                <div>
+                    <button>Prio</button>
+                    <button>Nouveau dossier</button>
+                    <button>Nouvelle Tâche</button>
+                    <button>Déconnexion</button>
+                </div>
+            </div>
+            {# Task FILTERS #}
+            <div class="tesk-filter flex">
+                <p>Filtres :</p>
+                <div>
+                    <label for="">Statut</label>
+                    <select name="" id="">
+                        <option value="haha">Tous</option>
+                        <option value="haha">Validé</option>
+                        <option value="haha">En cours</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="">Priorité</label>
+                    <select name="" id="">
+                        <option value="haha">Toutes</option>
+                        <option value="haha">Urgent</option>
+                        <option value="haha">Important</option>
+                        <option value="haha">Communes</option>
+                    </select>
+                </div>
+            </div>
+
+        </header>
+        {# TASKS LIST #}
+        <div class="tasks-list">
+
+        </div>
+    </main>
+</section>
+{% endblock %}
