@@ -81,6 +81,16 @@ class RegistrationFormType extends AbstractType
 <a href="{{ path('app_login') }}">Login</a>
 ```
 
+- Twig Component :
+*installation*
+```
+compose require symfony/ux-twig-component
+```
+*création d'un component réutilisable*
+``` 
+symfony console make:twig-component IconButton
+```
+
 ## Comment lire la documentation de Symfony
 
 - Symfony Docs : Le style FAQ est très pédagogique, il explique les concepts de manière simple et claire, avec des exemples concrets. **ATTENTION UTILISEZ LE SOMMAIRES SINON VOUS ALLEZ JAMAIS** : https://symfony.com/doc
