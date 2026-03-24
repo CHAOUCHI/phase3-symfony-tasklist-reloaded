@@ -11,32 +11,37 @@
         {# DASHBOARD HEADER FILTER and CRUD BUTTONS #}
         <header class="">
             {# CRUD BUTTONS #}
-            <div class="menu bg-white">
-                <div>
-                    <h1>Gestion de Tâches</h1>
-                    <p>Organisez vôtre journée efficacement</p>
+            <div class="menu bg-white flex justify-between items-center p-4">
+                <div class="flex-5">
+                    <h1 class=" text-2xl ">Gestion de Tâches</h1>
+                    <p class=" text-sm text-[#6A7282]">Organisez vôtre journée efficacement</p>
                 </div>
-                <div>
-                    <button>Prio</button>
-                    <button>Nouveau dossier</button>
-                    <button>Nouvelle Tâche</button>
-                    <button>Déconnexion</button>
+                <div class="flex flex-5 gap-2">
+                    <twig:IconButton bgcolor="bg-white" textcolor="text-black" textcontent="Gérer les priorités" faicon="fa-solid fa-gear" />
+                    <twig:IconButton bgcolor="bg-white" textcolor="text-black" textcontent="Nouveau dossier" faicon="fa-solid fa-folder-plus" />
+                    <twig:IconButton  textcontent="Nouvelle Tâche" faicon="fa-solid fa-plus" />
+                    <a href="{{path("app_logout")}}" class="w-full">
+                        <twig:IconButton bgcolor="bg-white" textcolor="text-black" textcontent="Déconnexion" faicon="fa-solid fa-right-from-bracket" />
+                    </a>
                 </div>
             </div>
             {# Task FILTERS #}
-            <div class="tesk-filter flex">
-                <p>Filtres :</p>
-                <div>
-                    <label for="">Statut</label>
-                    <select name="" id="">
+            <div class="tesk-filter flex gap-4 bg-[#F9FAFB] border border-black/10 px-6 py-4">
+                <div class="flex justify-start items-center gap-2">
+                    <i class="fa-solid fa-filter"></i>
+                    <p class="text-[#0A0A0A]">Filtres :</p>
+                </div>
+                <div class="flex justify-start items-center gap-2">
+                    <label for="" class="text-[#0A0A0A]">Statut</label>
+                    <select name="" id="" class="bg-[#F3F3F5] px-3 py-3 w-2xs rounded-2xl">
                         <option value="haha">Tous</option>
                         <option value="haha">Validé</option>
                         <option value="haha">En cours</option>
                     </select>
                 </div>
-                <div>
-                    <label for="">Priorité</label>
-                    <select name="" id="">
+                <div class="flex justify-start items-center gap-2">
+                    <label for="" class="text-[#0A0A0A]">Priorité</label>
+                    <select name="" id="" class="bg-[#F3F3F5] px-3 py-3 w-2xs rounded-2xl">
                         <option value="haha">Toutes</option>
                         <option value="haha">Urgent</option>
                         <option value="haha">Important</option>
@@ -47,8 +52,22 @@
 
         </header>
         {# TASKS LIST #}
-        <div class="tasks-list">
-
+        <div class="tasks-list flex flex-col bg-white h-full justify-start items-center py-6 gap-4">
+            <div class="w-100 bg-gray-300 pl-4 pr-16 py-4">
+                <p>Task</p>
+            </div>
+            <div class="w-100 bg-gray-300 pl-4 pr-16 py-4">
+                <p>Task</p>
+            </div>
+            <div class="w-100 bg-gray-300 pl-4 pr-16 py-4">
+                <p>Task</p>
+            </div>
+            <div class="w-100 bg-gray-300 pl-4 pr-16 py-4">
+                <p>Task</p>
+            </div>
+            <div class="w-100 bg-gray-300 pl-4 pr-16 py-4">
+                <p>Task</p>
+            </div>
         </div>
     </main>
 </section>
