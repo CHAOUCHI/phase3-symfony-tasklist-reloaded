@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\RequestStack;
 
 final class DashboardController extends AbstractController
 {
-    #[Route('/dashboard', name: 'app_dashboard')]
+    #[Route('/', name: 'app_dashboard')]
     public function index(RequestStack $requestStack, LoggerInterface $logger): Response
     {
         $session = $requestStack->getSession();
