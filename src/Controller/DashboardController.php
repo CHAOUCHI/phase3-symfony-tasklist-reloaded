@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\RequestStack;
 
 final class DashboardController extends AbstractController
 {
-    #[Route('/', name: 'app_dashboard')]
+    #[Route('/dashboard', name: 'app_dashboard')]
     public function index(RequestStack $requestStack, LoggerInterface $logger): Response
     {
         $session = $requestStack->getSession();
@@ -23,5 +23,11 @@ final class DashboardController extends AbstractController
         return $this->render('dashboard/index.html.twig', [
             'controller_name' => 'DashboardController',
         ]);
+    }
+
+    #[Route('/', name: 'app_home')]
+    public function home(): Response{
+
+        return $this->redirectToRoute('app_dashboard');
     }
 }
