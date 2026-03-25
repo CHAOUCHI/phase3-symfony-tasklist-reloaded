@@ -53,21 +53,12 @@
         </header>
         {# TASKS LIST #}
         <div class="tasks-list flex flex-col bg-white h-full justify-start items-center py-6 gap-4">
-            <div class="w-100 bg-gray-300 pl-4 pr-16 py-4">
-                <p>Task</p>
-            </div>
-            <div class="w-100 bg-gray-300 pl-4 pr-16 py-4">
-                <p>Task</p>
-            </div>
-            <div class="w-100 bg-gray-300 pl-4 pr-16 py-4">
-                <p>Task</p>
-            </div>
-            <div class="w-100 bg-gray-300 pl-4 pr-16 py-4">
-                <p>Task</p>
-            </div>
-            <div class="w-100 bg-gray-300 pl-4 pr-16 py-4">
-                <p>Task</p>
-            </div>
+            {# TaskItem #}
+            <twig:TaskItem priority="normal" title="lessive" />
+            <twig:TaskItem priority="normal" title="Faire le menage" />
+            <twig:TaskItem priority="urgent" title="Donner à manger au chat" />
+            <twig:TaskItem priority="important" title="Coder une fusée"/>
+            
         </div>
     </main>
 </section>
