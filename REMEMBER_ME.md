@@ -91,6 +91,12 @@ compose require symfony/ux-twig-component
 symfony console make:twig-component IconButton
 ```
 
+- J'ai oublier les commandes `symfony console`
+```bash
+symfony console list
+```
+
+
 ## Comment lire la documentation de Symfony
 
 - Symfony Docs : Le style FAQ est très pédagogique, il explique les concepts de manière simple et claire, avec des exemples concrets. **ATTENTION UTILISEZ LE SOMMAIRES SINON VOUS ALLEZ JAMAIS** : https://symfony.com/doc
