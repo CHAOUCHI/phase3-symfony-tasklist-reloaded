@@ -1,0 +1,16 @@
+<div class="flex border border-black/10 rounded-xl content-center justify-between p-4 w-2/3" {{attributes}}>
+    <div class="flex gap-3 items-center justify-start">
+        <input type="checkbox" name="is_done" id="is_done"
+            class="appearance-none w-4 h-4 bg-[#F3F3F5] border border-black/10 rounded-sm">
+        <div class="flex flex-col">
+            <div class="flex gap-2 text-[#101828] items-center">
+                <p>{{ title }}</p>
+                <p class="rounded-lg  px-2 border text-xs h-min {{ this.priorityToCss }}">
+                    {{priority}}
+                </p>
+            </div>
+            <p class="text-[#6A7282] text-xs">En cours</p>
+        </div>
+    </div>
+    <i class="fa-solid fa-thumbtack flex content-center text-[#99A1AF]"></i>
+</div>
