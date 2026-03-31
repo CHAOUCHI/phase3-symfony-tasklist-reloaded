@@ -5,7 +5,7 @@ Une application de gestion de tâches priorisées et organisées en dossiers. D�
 # Projet TaskList Reloaded
 Le bon vieux Tasklist, c'est le projet CRUD classique idéal pour faire un tour d'horizon de Symfony. :)
 
-*Have fun and don't forget to `symfony console cache:clear`*
+*Have fun and don't forget to `symfony console list` !*
 
 > Ici se trouve le cahier des charges fonctionnel et une partie du cahier des charges non fonctionnel (le schéma de la base de données).
 
