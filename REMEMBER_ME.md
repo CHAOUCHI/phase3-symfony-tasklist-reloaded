@@ -99,6 +99,48 @@ symfony console make:twig-component IconButton
 symfony console list
 ```
 
+- Faire une migration pour définir les lignes obligatoires de vos tables. Dans le projet TaskListReloaded ce sont les trois lignes pour ajouter les prioritées par défaut :
+1. `symfony console doctrine:migrations:generate` pour créer une migration vide
+2. Ajouter les requetes SQL neccessaire dans la méthode up() et les requetes SQL qui annule les changements dans la methode down()
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace DoctrineMigrations;
+
+use Doctrine\DBAL\Schema\Schema;
+use Doctrine\Migrations\AbstractMigration;
+
+/**
+ * Auto-generated Migration: Please modify to your needs!
+ */
+final class Version20260331171843 extends AbstractMigration
+{
+    public function getDescription(): string
+    {
+        return '';
+    }
+
+    public function up(Schema $schema): void
+    {
+        // this up() migration is auto-generated, please modify it to your needs
+        $this->addSql('INSERT INTO priority (level,importance) VALUES ("normal",0)');
+        $this->addSql('INSERT INTO priority (level,importance) VALUES ("important",1)');
+        $this->addSql('INSERT INTO priority (level,importance) VALUES ("urgent",2)');
+    }
+
+    public function down(Schema $schema): void
+    {
+        // this down() migration is auto-generated, please modify it to your needs
+        $this->addSql('DELETE * FROM priority');
+    }
+}
+```
+3. Effectuer votre migration avec `symfony console doctrine:migrations:migrate`
+> Souvenez vos que migrations migrate effectue toutes les migrations non-appliquées à la base de données dans leurs ordres de création.
+> La dernière migration connu es défini dans la table doctrine_migrations_version de votre database. C'est ainsi que lors de la mises en production la commande `symfony console doctrine:migrations:migrate` est obligatoire pour appliquer tout votre shéma.
+> Dit simplement : la somme des fichiers de migrations formes votre schema SQL, le même schéma qu'il fallait appliquer au démarrage de l'application avant que vous découvriez le principe des migrations.
 
 ## Comment lire la documentation de Symfony
 
