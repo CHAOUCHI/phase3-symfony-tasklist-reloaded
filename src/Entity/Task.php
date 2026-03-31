@@ -28,6 +28,9 @@ class Task
     #[ORM\JoinColumn(nullable: false)]
     private ?Priority $priority = null;
 
+    #[ORM\ManyToOne(inversedBy: 'tasks')]
+    private ?Folder $folder = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -77,6 +80,18 @@ class Task
     public function setPriority(?Priority $priority): static
     {
         $this->priority = $priority;
+
+        return $this;
+    }
+
+    public function getFolder(): ?Folder
+    {
+        return $this->folder;
+    }
+
+    public function setFolder(?Folder $folder): static
+    {
+        $this->folder = $folder;
 
         return $this;
     }
