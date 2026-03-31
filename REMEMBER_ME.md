@@ -15,6 +15,9 @@
 
 - `tailwind build --watch` : Permet de compiler le css de tailwind en temps réel, il faut lancer cette commande dans le terminal au démarrage de votre VSCode pour que les changements soient pris en compte quand vous codez votre application.
 
+- `symfony console make:form` permet de créer un formulaire pour une entity, c'est utile pour les forumlaire de Creation et d'Edition d'un CRUD. Il est d'usage d'utiliser le même formulaire pour la création et l'édition d'une entité (d'une ligne SQL). La lecture et la suppression (R & D du CRUD) ne neccessite pas de formulaire. Un seul formulaire est donc finalement suffisant pour faire un CRUD.
+
+
 - FormBuilder Attribute : Permet de définir entre autres les attributs HTML d'un champ de formulaire, comme la classe CSS, le placeholder, etc...
 ```php
 <?php
