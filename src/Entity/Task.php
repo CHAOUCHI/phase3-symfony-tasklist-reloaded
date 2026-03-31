@@ -18,7 +18,7 @@ class Task
     private ?string $title = null;
 
     #[ORM\Column(enumType: TaskStatus::class)]
-    private ?TaskStatus $status = null;
+    private ?TaskStatus $status = TaskStatus::pending;
 
     #[ORM\ManyToOne(inversedBy: 'tasks')]
     #[ORM\JoinColumn(nullable: false)]
