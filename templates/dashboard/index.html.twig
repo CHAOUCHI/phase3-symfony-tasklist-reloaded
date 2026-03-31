@@ -19,7 +19,9 @@
                 <div class="flex flex-5 gap-2">
                     <twig:IconButton bgcolor="bg-white" textcolor="text-black" textcontent="Gérer les priorités" faicon="fa-solid fa-gear" />
                     <twig:IconButton bgcolor="bg-white" textcolor="text-black" textcontent="Nouveau dossier" faicon="fa-solid fa-folder-plus" />
-                    <twig:IconButton  textcontent="Nouvelle Tâche" faicon="fa-solid fa-plus" />
+                    <a href="{{path("app_task_new")}}" class="w-full">
+                        <twig:IconButton  textcontent="Nouvelle Tâche" faicon="fa-solid fa-plus" />
+                    </a>
                     <a href="{{path("app_logout")}}" class="w-full">
                         <twig:IconButton bgcolor="bg-white" textcolor="text-black" textcontent="Déconnexion" faicon="fa-solid fa-right-from-bracket" />
                     </a>
