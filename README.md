@@ -87,10 +87,12 @@ erDiagram
     Priority{
         int id PK
         string level "UNIQUE"
+        int importance "UNIQUE"
     }
     Folder{
         int id PK
         string name "UNIQUE"
+        string color
     }
     
     STATUS_ENUM{
