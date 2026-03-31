@@ -44,9 +44,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(targetEntity: Task::class, mappedBy: 'user', orphanRemoval: true)]
     private Collection $tasks;
 
+    /**
+     * @var Collection<int, Folder>
+     */
+    #[ORM\OneToMany(targetEntity: Folder::class, mappedBy: 'user', orphanRemoval: true)]
+    private Collection $folders;
+
     public function __construct()
     {
         $this->tasks = new ArrayCollection();
+        $this->folders = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -160,6 +167,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($task->getUser() === $this) {
                 $task->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Folder>
+     */
+    public function getFolders(): Collection
+    {
+        return $this->folders;
+    }
+
+    public function addFolder(Folder $folder): static
+    {
+        if (!$this->folders->contains($folder)) {
+            $this->folders->add($folder);
+            $folder->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFolder(Folder $folder): static
+    {
+        if ($this->folders->removeElement($folder)) {
+            // set the owning side to null (unless already changed)
+            if ($folder->getUser() === $this) {
+                $folder->setUser(null);
             }
         }
 

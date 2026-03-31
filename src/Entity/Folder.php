@@ -27,6 +27,10 @@ class Folder
     #[ORM\OneToMany(targetEntity: Task::class, mappedBy: 'folder')]
     private Collection $tasks;
 
+    #[ORM\ManyToOne(inversedBy: 'folders')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $user = null;
+
     public function __construct()
     {
         $this->tasks = new ArrayCollection();
@@ -87,6 +91,18 @@ class Folder
                 $task->setFolder(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
 
         return $this;
     }
