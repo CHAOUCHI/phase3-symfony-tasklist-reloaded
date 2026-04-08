@@ -16,13 +16,16 @@ class TaskType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('title',null,[
-                "label"=>"Titre de la tâche"
+            ->add('title', null, [
+                "label" => "Titre de la tâche",
+                "attr" => [
+                    "placeholder" => "Ex: Faire les courses"
+                ],
             ])
             ->add('priority', EntityType::class, [
                 'class' => Priority::class,
-                "label"=>"Priorité",
-                'choice_label' => 'level',
+                "label" => "Priorité",
+                'choice_label' => 'level'
             ])
             // ->add('status')
             // ->add('user', EntityType::class, [
@@ -32,7 +35,7 @@ class TaskType extends AbstractType
             ->add('folder', EntityType::class, [
                 'class' => Folder::class,
                 'choice_label' => 'name',
-                "label"=>"Dossier(optionnel)"
+                "label" => "Dossier(optionnel)"
             ])
         ;
     }
