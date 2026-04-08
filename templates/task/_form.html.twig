@@ -1,6 +1,50 @@
-{{ form_start(form) }}
+{% block stylesheets %}
+<style>
+    .register_form {
+        form {
+
+            input,
+            select {
+                background-color: #F3F3F5;
+                min-width: 398px;
+                padding: 8px;
+                border-radius: 8px;
+                margin: 0px 0px;
+            }
+
+            label {
+                font-size: 14px;
+                margin: 10px 0px;
+                color: #0A0A0A;
+            }
+
+            div {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    }
+</style>
+{% endblock %}
+
+<div class="register_form bg-white p-6 rounded-xl shadow-xl/20 relative">
+    <a href="{{path("app_dashboard")}}">
+        <i class="fa-solid fa-xmark h-4 w-4 text-[#0A0A0A]/70 absolute top-4 right-4 z-10">
+
+        </i>
+    </a>
+
+    <h2 class=" text-base mb-3 font-bold">Créer une tâche</h2>
+    <p class="text-base text-[#717182]">Ajoutez une nouvelle tâche à votre liste</p>
+    {{ form_start(form) }}
     {{ form_row(form.title) }}
     {{ form_row(form.priority)}}
     {{ form_row(form.folder)}}
-    <button class="btn">{{ button_label|default('Créer') }}</button>
-{{ form_end(form) }}
+    <span class="flex justify-end gap-2 mt-4 ">
+        <button class="btn bg-[#ffffff] text-black px-4 py-2  border border-black/10  rounded-xl"><a href="{{path("app_dashboard")}}">Annuler</a></button>
+        <button class="btn  bg-[#030213] text-white px-4 py-2 rounded-xl">{{button_label|default('Créer') }}</button>
+    </span>
+
+    {{ form_end(form) }}
+    {{ form_errors(form) }}
+</div>

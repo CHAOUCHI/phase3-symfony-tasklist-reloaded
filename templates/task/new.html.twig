@@ -3,10 +3,8 @@
 {% block title %}New Task{% endblock %}
 
 {% block body %}
-    <h1>Créer une tâche</h1>
-    <p>Ajoutez une nouvelle tâche à votre liste </p>
-
+<section class="bg-[#ffffff] h-screen flex flex-col justify-center items-center ">
     {{ include('task/_form.html.twig') }}
+</section>
 
-    <a href="{{ path('app_task_index') }}">back to list</a>
 {% endblock %}
