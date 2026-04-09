@@ -1,4 +1,51 @@
-{{ form_start(form) }}
+{# {{ form_start(form) }}
     {{ form_widget(form) }}
     <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+{{ form_end(form) }} #}
+
+
+{% block stylesheets %}
+<style>
+    .register_form {
+        form {
+
+            input,
+            select {
+                background-color: #F3F3F5;
+                padding: 8px;
+                border-radius: 8px;
+                margin: 0px 0px;
+            }
+
+            label {
+                font-size: 14px;
+                margin: 10px 0px;
+                color: #0A0A0A;
+            }
+
+            
+        }
+    }
+</style>
+{% endblock %}
+
+<div class="register_form bg-white p-6 rounded-xl shadow-xl/20 relative min-w-lg">
+    <a href="{{path("app_dashboard")}}">
+        <i class="fa-solid fa-xmark h-4 w-4 text-[#0A0A0A]/70 absolute top-4 right-4 z-10"></i>
+    </a>
+
+    <h2 class=" text-base mb-3 font-bold">Gérer les priorités</h2>
+    <p class="text-base text-[#717182]">Ajoutez ou supprimez des niveaux de priorité personnalisés</p>
+    {{ form_start(form) }}
+    <div class="flex flex-row justify-center items-center gap-2">
+        {{ form_widget(form.level,{attr: {class: 'flex-9'}}) }}
+        <button class="btn flex-1 bg-black rounded-lg aspect-square flex justify-center items-center"><i class="fa-solid fa-plus text-white"></i></button>
+    </div>
+    <div class="flex flex-col">
+        {{ form_label(form.importance) }}
+        {{ form_widget(form.importance) }}
+    </div>
+
+    {{ form_end(form) }}
+    {{ form_errors(form) }}
+</div>

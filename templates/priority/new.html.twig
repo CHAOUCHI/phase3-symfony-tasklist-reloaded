@@ -3,9 +3,8 @@
 {% block title %}New Priority{% endblock %}
 
 {% block body %}
-    <h1>Create new Priority</h1>
-
+<section class="bg-[#ffffff] h-screen flex flex-col justify-center items-center ">
     {{ include('priority/_form.html.twig') }}
+</section>
 
-    <a href="{{ path('app_priority_index') }}">back to list</a>
 {% endblock %}

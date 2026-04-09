@@ -12,8 +12,14 @@ class PriorityType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('level')
-            ->add('importance')
+            ->add('level',null,[
+                "attr"=>[
+                    "placeholder"=>"Ex: Très urgent"
+                ]
+            ])
+            ->add('importance',null,[
+
+            ])
         ;
     }
 
