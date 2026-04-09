@@ -16,7 +16,7 @@ final class DashboardController extends AbstractController
     #[Route('/dashboard', name: 'app_dashboard')]
     public function index(#[CurrentUser] User $user): Response
     {
-        $tasks = $user->getTasks();
+        $tasks = $user->getTasks(); # Get user's tasks only not all tasks in the database
         return $this->render('dashboard/index.html.twig', [
             'tasks' => $tasks
         ]);
