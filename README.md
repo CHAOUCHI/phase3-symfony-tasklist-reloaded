@@ -5,9 +5,13 @@ Une application de gestion de tâches priorisées et organisées en dossiers. D�
 # Projet TaskList Reloaded
 Le bon vieux Tasklist, c'est le projet CRUD classique idéal pour faire un tour d'horizon de Symfony. :)
 
-*Have fun and don't forget to `symfony console cache:clear`*
+*Have fun and don't forget to `symfony console list` !*
 
 > Ici se trouve le cahier des charges fonctionnel et une partie du cahier des charges non fonctionnel (le schéma de la base de données).
+
+## Lien du répo GitHub à fork
+https://github.com/CHAOUCHI/phase3-symfony-tasklist-reloaded
+
 
 ## Objectif pédagogique : le CRUD, les relations SQL simples et l'authentification.
 
@@ -86,11 +90,13 @@ erDiagram
     }
     Priority{
         int id PK
-        string level "UNIQUE"
+        string name "UNIQUE"
+        int importance "UNIQUE"
     }
     Folder{
         int id PK
         string name "UNIQUE"
+        string color
     }
     
     STATUS_ENUM{

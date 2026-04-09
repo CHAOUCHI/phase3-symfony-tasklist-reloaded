@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Task{% endblock %}
+
+{% block body %}
+<section class="bg-[#ffffff] h-screen flex flex-col justify-center items-center ">
+    {{ include('task/_form.html.twig') }}
+</section>
+
+{% endblock %}

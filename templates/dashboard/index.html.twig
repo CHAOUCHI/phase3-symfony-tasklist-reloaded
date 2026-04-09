@@ -16,10 +16,14 @@
                     <h1 class=" text-2xl ">Gestion de Tâches</h1>
                     <p class=" text-sm text-[#6A7282]">Organisez vôtre journée efficacement</p>
                 </div>
-                <div class="flex flex-5 gap-2">
-                    <twig:IconButton bgcolor="bg-white" textcolor="text-black" textcontent="Gérer les priorités" faicon="fa-solid fa-gear" />
+                <div class="flex flex-5 gap-2 justify-end items-center">
+                    <a href="{{path("app_priority_new")}}" class="w-full">
+                        <twig:IconButton bgcolor="bg-white" textcolor="text-black" textcontent="Gérer les priorités" faicon="fa-solid fa-gear" />
+                    </a>
                     <twig:IconButton bgcolor="bg-white" textcolor="text-black" textcontent="Nouveau dossier" faicon="fa-solid fa-folder-plus" />
-                    <twig:IconButton  textcontent="Nouvelle Tâche" faicon="fa-solid fa-plus" />
+                    <a href="{{path("app_task_new")}}" class="w-full">
+                        <twig:IconButton  textcontent="Nouvelle Tâche" faicon="fa-solid fa-plus" />
+                    </a>
                     <a href="{{path("app_logout")}}" class="w-full">
                         <twig:IconButton bgcolor="bg-white" textcolor="text-black" textcontent="Déconnexion" faicon="fa-solid fa-right-from-bracket" />
                     </a>
@@ -42,10 +46,10 @@
                 <div class="flex justify-start items-center gap-2">
                     <label for="" class="text-[#0A0A0A]">Priorité</label>
                     <select name="" id="" class="bg-[#F3F3F5] px-3 py-3 w-2xs rounded-2xl">
-                        <option value="haha">Toutes</option>
-                        <option value="haha">Urgent</option>
-                        <option value="haha">Important</option>
-                        <option value="haha">Communes</option>
+                    <option value="-1">Toutes</option>
+                    {% for priority in priorities %}
+                        <option value="{{ priority.id }}">{{ priority.level|capitalize }}</option>
+                    {% endfor %}
                     </select>
                 </div>
             </div>
@@ -54,10 +58,11 @@
         {# TASKS LIST #}
         <div class="tasks-list flex flex-col bg-white h-full justify-start items-center py-6 gap-4">
             {# TaskItem #}
-            <twig:TaskItem priority="normal" title="lessive" />
-            <twig:TaskItem priority="normal" title="Faire le menage" />
-            <twig:TaskItem priority="urgent" title="Donner à manger au chat" />
-            <twig:TaskItem priority="important" title="Coder une fusée"/>
+            {%for task in tasks %}
+                <twig:TaskItem priority="{{task.priority.level}}" title="{{task.title}}" />
+
+                {# <twig:TaskItem priority="normal" title="lessive" /> #}
+            {%endfor %}
             
         </div>
     </main>
