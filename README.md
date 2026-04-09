@@ -9,6 +9,10 @@ Le bon vieux Tasklist, c'est le projet CRUD classique idéal pour faire un tour 
 
 > Ici se trouve le cahier des charges fonctionnel et une partie du cahier des charges non fonctionnel (le schéma de la base de données).
 
+## Lien du répo GitHub à fork
+https://github.com/CHAOUCHI/phase3-symfony-tasklist-reloaded
+
+
 ## Objectif pédagogique : le CRUD, les relations SQL simples et l'authentification.
 
 
