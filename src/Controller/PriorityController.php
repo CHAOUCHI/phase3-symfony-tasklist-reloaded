@@ -23,7 +23,7 @@ final class PriorityController extends AbstractController
     }
 
     #[Route('/new', name: 'app_priority_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, PriorityRepository $priorityRepository): Response
     {
         $priority = new Priority();
         $form = $this->createForm(PriorityType::class, $priority);
@@ -35,10 +35,13 @@ final class PriorityController extends AbstractController
 
             return $this->redirectToRoute('app_priority_index', [], Response::HTTP_SEE_OTHER);
         }
+        // Get existing priorities to display in the template
+        $existingPriorities = $priorityRepository->findAll();
 
         return $this->render('priority/new.html.twig', [
             'priority' => $priority,
             'form' => $form,
+            'existing_priorities' => $existingPriorities, // Pass existing priorities to the template
         ]);
     }
 
