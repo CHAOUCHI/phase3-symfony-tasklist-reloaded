@@ -79,6 +79,15 @@ class RegistrationFormType extends AbstractType
 }
 ```
 
+- Afficher un champs de formulaire avec les helpers fonctions :  *https://symfony.com/doc/current/form/form_customization.html#form-rendering-functions*
+![alt text](image.png)
+
+- Form field CSS : Vous pouvez définir la classe CSS d'un champ de formulaire dans le FormBuilder avec l'attribut `attr` et la clé `class`. Par exemple, pour ajouter la classe `text-red` à un champ de formulaire nommé `level` et mettre le texte en rouge, vous pouvez faire comme suit :
+```twig
+{{ form_widget(form.level,{attr: {class: 'text-red'}}) }}
+```
+> Widget correspond à la balise input uniquement (ou select, textarea, etc...) tandis que row correspond à l'ensemble du champ de formulaire (label + widget + erreurs). Donc si vous voulez styliser uniquement la balise input, il faut utiliser form_widget.
+
 - Ecrire un href : Utilisez la fonction `path()` dans votre template twig
 ```html
 <a href="{{ path('app_login') }}">Login</a>
