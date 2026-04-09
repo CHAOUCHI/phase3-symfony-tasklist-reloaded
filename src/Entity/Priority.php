@@ -19,7 +19,7 @@ class Priority
     private ?string $level = null;
 
     #[ORM\Column]
-    private ?int $importance = null;
+    private ?int $importance = 0;
 
     /**
      * @var Collection<int, Task>
