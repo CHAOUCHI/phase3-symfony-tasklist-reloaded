@@ -90,7 +90,7 @@ erDiagram
     }
     Priority{
         int id PK
-        string level "UNIQUE"
+        string name "UNIQUE"
         int importance "UNIQUE"
     }
     Folder{
