@@ -2,6 +2,7 @@
 
 namespace App\Twig\Components;
 
+use App\Enum\TaskStatus;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 use Twig\Error\RuntimeError;
 
@@ -12,6 +13,9 @@ final class TaskItem
     // twig attributes
     public string $title = "default_title";
     public string $priority = "normal";
+    public TaskStatus $status = TaskStatus::pending;
+    public int $id = 0;
+
 
 
     // private attributes
@@ -25,5 +29,10 @@ final class TaskItem
             "normal" => "bg-[#DBEAFE] text-[#1447E6] border-[#BEDBFF]",
             default => "bg-gray-200 text-black border-black/10"
         };
+    }
+
+    public function getIsDone():bool
+    {
+        return $this->status === TaskStatus::completed;
     }
 }

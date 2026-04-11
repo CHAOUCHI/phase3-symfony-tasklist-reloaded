@@ -59,7 +59,7 @@
         <div class="tasks-list flex flex-col bg-white h-full justify-start items-center py-6 gap-4">
             {# TaskItem #}
             {%for task in tasks %}
-                <twig:TaskItem priority="{{task.priority.level}}" title="{{task.title}}" />
+                <twig:TaskItem id="{{task.id}}" priority="{{task.priority.level}}" title="{{task.title}}" status="{{task.status}}"/>
 
                 {# <twig:TaskItem priority="normal" title="lessive" /> #}
             {%endfor %}

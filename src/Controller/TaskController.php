@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Task;
 use App\Entity\User;
+use App\Enum\TaskStatus;
 use App\Form\TaskType;
 use App\Repository\TaskRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -43,6 +44,26 @@ final class TaskController extends AbstractController
             'task' => $task,
             'form' => $form,
         ]);
+    }
+
+    #[Route('/{id}/done',name:"app_task_done",methods:['POST'])]
+    public function validateTask(Task $task, #[CurrentUser()] User $user, EntityManagerInterface $entityManager):Response
+    {
+        if($task->getUser()->getId() != $user->getId()){
+            return $this->redirectToRoute('app_dashboard',[],Response::HTTP_UNAUTHORIZED);
+        }
+        // !! missing CSRF protection !!
+
+        if($task->getStatus() == TaskStatus::completed){
+            $task->setStatus(TaskStatus::pending);
+        }else if($task->getStatus() == TaskStatus::pending){
+            $task->setStatus(TaskStatus::completed);
+        }
+        // No need to call this->persist since the task is already managed 
+        // by Doctrine automaticamlly when we fetch it from the database on the paramter of this method 
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_dashboard',[],Response::HTTP_SEE_OTHER);
     }
 
     // #[Route('/{id}', name: 'app_task_show', methods: ['GET'])]
