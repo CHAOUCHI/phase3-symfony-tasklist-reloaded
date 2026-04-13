@@ -151,6 +151,58 @@ final class Version20260331171843 extends AbstractMigration
 > La dernière migration connu es défini dans la table doctrine_migrations_version de votre database. C'est ainsi que lors de la mises en production la commande `symfony console doctrine:migrations:migrate` est obligatoire pour appliquer tout votre shéma.
 > Dit simplement : la somme des fichiers de migrations formes votre schema SQL, le même schéma qu'il fallait appliquer au démarrage de l'application avant que vous découvriez le principe des migrations.
 
+
+- CSRF Formulaire sécurisé. Si vous modifier une donnée via un lien cliquable ou un formulaire vous etes exposée à une attaque CSRF (Cross Site Resources Forgery) qui permet à un attaquant de faire une requete sur votre site sans même que ce dernier soit sur votre site web. Le plus souvent, les attaques CSRF sont effectuées via des formulaires cachés sur d'autres sites internet scam qui redirigent vers une route de votre application.
+
+Concerètement, prennont un formulaire qui permet de valider une tâche :
+```html
+    <form action="{{path('app_task_done',{id : id})}}" method="post">
+        <input type="checkbox" onclick="this.form.submit()" {{ this.isDone ? "checked" : "" }} name="is_done" id="is_done" class=" w-4 h-4 bg-[#F3F3F5] border border-black/10 rounded-sm">
+        <button class="btn"></button>
+    </form>
+```
+*La tâche avant le clique sur la checkbox de validation*
+![alt text](image-1.png)
+
+Pour valider une tâche il suffit à l'utilisateur :
+1. De ce connectée au site web (démarrage de la session donc)
+2. De cliquer sur le bouton pour soumètre le formulaire à la route `POST /task/2/done`
+
+Et ainsi la tâche est modifier dans la base de donnée ! Rien de plus simple.
+*La tâche validée après l'envoie du formulaire à la route *
+![alt text](image-2.png)
+
+Maintenant une question se pose : "Si un autre site internet  ecrit contient lui aussi un formulaire qui redirige vers la route `http://localhost:8000/task/2/done` est ce que celà va fonctionner ?
+
+La réponse est oui !
+
+```html
+<form action="http://localhost:8000/task/2/done" method="post">
+    <input type="checkbox" onclick="this.form.submit()" name="is_done">
+    <button class="btn"></button>
+</form>
+```
+
+Ce formulaire peut être placé sur n'importe quel site internet, et **tant que l'utilisateur c'est déjà connecté à votre application**, il peut soumettre ce formulaire et ainsi modifier les données de votre application sans même être sur votre site web ! C'est ce qu'on appelle une attaque CSRF.
+
+Pour éviter ce genre d'attaque, Symfony utilise un système de token CSRF. Lorsque vous créez un formulaire avec Symfony, un token CSRF est automatiquement généré et ajouté au formulaire. Ce token est unique pour chaque session utilisateur et est vérifié à chaque soumission de formulaire. Si le token n'est pas présent ou est invalide, la soumission du formulaire est rejetée.
+
+C'est le cas des formlaires crée avec les helpers fonctions form(), form_start(), form_end() de twig. **Mais si vous crée une formulaire à la main, vous devez ajouter le token CSRF manuellement.**
+
+***La solution*** : Ajouter un champ caché dans votre formulaire qui contient le token CSRF généré par Symfony. Vous pouvez générer ce token dans votre contrôleur et le passer à votre template Twig, puis l'inclure dans votre formulaire, grâce à la fonction `csrf_token()` dans Twig comme suit :
+```html
+<form action="{{path('app_task_done',{id : id})}}" method="post">
+    
+    <input type="hidden" name="token" value="{{ csrf_token('task_done') }}">
+
+    <input type="checkbox" onclick="this.form.submit()" {{ this.isDone ? "checked" : "" }} name="is_done" id="is_done" class=" w-4 h-4 bg-[#F3F3F5] border border-black/10 rounded-sm">
+    <button class="btn"></button>
+</form>
+```
+
+
+
+
 ## Comment lire la documentation de Symfony
 
 - Symfony Docs : Le style FAQ est très pédagogique, il explique les concepts de manière simple et claire, avec des exemples concrets. **ATTENTION UTILISEZ LE SOMMAIRES SINON VOUS ALLEZ JAMAIS** : https://symfony.com/doc

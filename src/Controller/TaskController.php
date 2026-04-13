@@ -47,13 +47,16 @@ final class TaskController extends AbstractController
     }
 
     #[Route('/{id}/done',name:"app_task_done",methods:['POST'])]
-    public function validateTask(Task $task, #[CurrentUser()] User $user, EntityManagerInterface $entityManager):Response
+    public function validateTask(Task $task, #[CurrentUser()] User $user, EntityManagerInterface $entityManager, Request $request):Response
     {
-        if($task->getUser()->getId() != $user->getId()){
+        $taskId = $task->getUser()->getId();
+        $csrfToken = $request->getPayload()->get("token");
+        
+        if($taskId != $user->getId() || !$this->isCsrfTokenValid($taskId,$csrfToken))
+        {
             return $this->redirectToRoute('app_dashboard',[],Response::HTTP_UNAUTHORIZED);
         }
-        // !! missing CSRF protection !!
-
+         
         if($task->getStatus() == TaskStatus::completed){
             $task->setStatus(TaskStatus::pending);
         }else if($task->getStatus() == TaskStatus::pending){

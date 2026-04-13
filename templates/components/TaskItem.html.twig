@@ -1,7 +1,7 @@
 <div class="flex border border-black/10 rounded-xl content-center justify-between p-4 w-2/3" {{attributes}}>
     <div class="flex gap-3 items-center justify-start">
         <form action="{{path('app_task_done',{id : id})}}" method="post">
-            <input type="checkbox" hidden>
+            <input type="hidden" name="token" value="{{ csrf_token('validate-'~id) }}">
             <input type="checkbox" onclick="this.form.submit()" {{ this.isDone ? "checked" : "" }} name="is_done" id="is_done" class=" w-4 h-4 bg-[#F3F3F5] border border-black/10 rounded-sm">
             <button class="btn"></button>
         </form>
