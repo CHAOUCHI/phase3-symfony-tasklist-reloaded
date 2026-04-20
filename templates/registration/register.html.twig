@@ -3,22 +3,24 @@
 {% block title %}Inscription{% endblock %}
 
 {% block body %}
-<h1 class="text-2xl font-bold mb-4 text-center">Inscription</h1>
 
 <section class="h-screen  flex items-center justify-center bg-amber-700 gap-4">
+    <h1 class="text-2xl font-bold mb-4 text-center">Inscription</h1>
 
-    {{ form_errors(registrationForm) }} 
+    {{ form_errors(registrationForm) }}
 
     {{ form_start(registrationForm) }}
     <div class="flex flex-col gap-4 w-full">
-   
-   <div class="bg-blue-800">{{ form_row(registrationForm.email) }}</div>     
-    {{ form_row(registrationForm.plainPassword, {
-    label: 'Password'
-    }) }}
-    {{ form_row(registrationForm.agreeTerms) }}
 
-    <button type="submit" class="btn text-white bg-[#030213]">S'incrire</button>
+        <div class="bg-blue-800">
+            {{ form_widget(registrationForm.email,{attr:{class:"text-red-500"}}) }}
+        </div>
+        {{ form_row(registrationForm.plainPassword, {
+        label: 'Password'
+        }) }}
+        {{ form_row(registrationForm.agreeTerms) }}
+
+        <button type="submit" class="btn text-white bg-[#030213]">S'incrire</button>
     </div>
     {{ form_end(registrationForm) }}
 </section>
