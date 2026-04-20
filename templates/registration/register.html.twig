@@ -7,16 +7,19 @@
 
 <section class="h-screen  flex items-center justify-center bg-amber-700 gap-4">
 
-    {{ form_errors(registrationForm) }}
+    {{ form_errors(registrationForm) }} 
 
     {{ form_start(registrationForm) }}
-    {{ form_row(registrationForm.email) }}
+    <div class="flex flex-col gap-4 w-full">
+   
+   <div class="bg-blue-800">{{ form_row(registrationForm.email) }}</div>     
     {{ form_row(registrationForm.plainPassword, {
     label: 'Password'
     }) }}
     {{ form_row(registrationForm.agreeTerms) }}
 
-    <button type="submit" class="btn text-white bg-[#030213] font-family-[Pixelify+Sans]">S'incrire</button>
+    <button type="submit" class="btn text-white bg-[#030213]">S'incrire</button>
+    </div>
     {{ form_end(registrationForm) }}
 </section>
 {% endblock %}

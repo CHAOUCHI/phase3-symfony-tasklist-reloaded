@@ -3,5 +3,8 @@
 
 body {
 background: linear-gradient(#E0E7FF);
+font-family: "Arimo", sans-serif;
+font-optical-sizing: auto;
+
 }
 
