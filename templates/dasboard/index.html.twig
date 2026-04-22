@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dasboard{% endblock %}
+
+{% block body %}
+<style>
+ 
+</style>
+
+<div class=" flex  p-6 gap-6">
+    <div class=" flex flex-col max-h-full px-2 py-4 bg-red-300 gap-4">
+        <button> Toutes les tâches</button>
+        <h1>
+            DOSSIERS
+        </h1>
+        <p> Maison </p>
+    </div>
+    
+    <div class="gestion-taches flex justify-between w-full px-2 py-4 bg-green-200">
+       <div class="gap-2">
+         <h1>Gestion des Tâches</h1>
+        <p>Organisez votre journée efficacement</p>
+       </div>  
+
+       <div class=" flex bg-amber-400 gap-3 ">
+        <!-- <a href="" class="w-full"> -->
+        <button>Gérer les priorités</button>
+        <!-- </a> -->
+        <button>Nouveau dossier</button>
+        <button>Nouvelle tâche</button>
+        <button>Déconnexion</button>
+       </div>
+    </div>
+ <details class="group bg-white border border-gray-200 rounded-lg shadow-sm w-64">
+    <summary class="flex items-center justify-between p-4 cursor-pointer list-none font-medium">
+        <span>📂 Mes Dossiers</span>
+        <span class="transition group-open:rotate-180">▼</span>
+    </summary>
+
+    <div class="border-t border-gray-100 p-2 flex flex-col gap-1">
+        <a href="#" class="p-2 hover:bg-blue-50 rounded text-gray-700">Maison</a>
+        <a href="#" class="p-2 hover:bg-blue-50 rounded text-gray-700">Travail</a>
+        <a href="#" class="p-2 hover:bg-blue-50 rounded text-gray-700 text-red-500 font-semibold">+ Créer un dossier</a>
+    </div>
+</details>
+</div>
+{% endblock %}
