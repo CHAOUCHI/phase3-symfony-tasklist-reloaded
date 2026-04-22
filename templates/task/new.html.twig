@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle tâche{% endblock %}
+
+{% block body %}
+<section class="h-screen  flex items-center justify-center  gap-4">
+     <div class="flex flex-col gap-4 w-96 bg-white p-8 rounded-lg ">
+    <h1 class="font-regular mb-4 text-left">Créer une nouvelle tâche</h1>
+    <p class="text-[#717182] text-sm mb-2">Ajoutez une nouvelle tâche à votre liste</p>
+
+    {{ include('task/_form.html.twig') }}
+
+    <a href="{{ path('app_task_index') }}">Retour à la liste</a>
+    </div>
+</section>
+{% endblock %}

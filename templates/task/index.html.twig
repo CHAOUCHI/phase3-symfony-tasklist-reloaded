@@ -1,20 +1,45 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello TaskController!{% endblock %}
+{% block title %}Créer une tâche{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<section class="h-screen  flex items-center justify-center  gap-4">
+    <h1 class="font-regular mb-4 text-left">Créer une tâche</h1>
+            <p class="text-[#717182] text-sm mb-2">Ajoutez une nouvelle tâche à votre liste</p>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Status</th>
+                <th>IsPinned</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+            <tr>
+                <td>{{ task.id }}</td>
+                <td>{{ task.title }}</td>
+                <td>{{ task.status.value }}</td>
+                <td>{{ task.isPinned ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a class="btn text-white bg-[#030213] rounded-lg p-2" href="{{ path('app_task_show', {'id': task.id}) }}">show</a>
+                    <a class="btn text-white bg-[#030213] rounded-lg p-2"  href="{{ path('app_task_edit', {'id': task.id}) }}">edit</a>
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/home/user/Bureau/phase3-symfony-tasklist-reloaded/src/Controller/TaskController.php</code></li>
-        <li>Your template at <code>/home/user/Bureau/phase3-symfony-tasklist-reloaded/templates/task/index.html.twig</code></li>
-    </ul>
-</div>
+    <div class="flex gap-4">
+    <a class="btn text-[#030213] bg-white rounded-lg p-2" href="#">Annuler</a>
+    <a class="btn text-white bg-[#030213] rounded-lg p-2" href="{{ path('app_task_new') }}">Créer</a>
+    </div>
+</section>
 {% endblock %}
