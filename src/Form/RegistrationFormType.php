@@ -25,8 +25,8 @@ class RegistrationFormType extends AbstractType
                     'class' => 'text-[#717182]'
                 ],
                 'attr' => [
-                    'class' => 'toggle-checkbox  bg-violet-500 rounded-full',
-                    'data-toggle-target' => '#registration-form',
+                    'class' => 'toggle-checkbox  bg-violet-500 rounded-full'
+           
                 ]
             ])
 
