@@ -4,23 +4,24 @@
 
 {% block body %}
 
-<section class="h-screen  flex items-center justify-center bg-amber-700 gap-4">
-    <h1 class="text-2xl font-bold mb-4 text-center">Inscription</h1>
+<section class="h-screen  flex items-center justify-center  gap-4">
 
     {{ form_errors(registrationForm) }}
 
     {{ form_start(registrationForm) }}
-    <div class="flex flex-col gap-4 w-full">
+    <div class="flex flex-col gap-4 w-96  bg-white p-8 rounded-lg ">
+        <h1 class=" font-regular mb-4 text-left">Gestion de Tâches</h1>
 
-        <div class="bg-blue-800">
-            {{ form_widget(registrationForm.email,{attr:{class:"text-red-500"}}) }}
-        </div>
+        {{ form_label(registrationForm.email) }}
+        {{ form_widget(registrationForm.email) }}
+
+        {{form_row(registrationForm.username)}}
+
         {{ form_row(registrationForm.plainPassword, {
         label: 'Password'
         }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
-
-        <button type="submit" class="btn text-white bg-[#030213]">S'incrire</button>
+       
+        <button type="submit" class="btn text-white bg-[#030213] rounded-lg p-2">S'incrire</button>
     </div>
     {{ form_end(registrationForm) }}
 </section>
