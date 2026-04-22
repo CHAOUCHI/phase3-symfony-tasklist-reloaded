@@ -18,18 +18,6 @@ class RegistrationFormType extends AbstractType
     {
         $builder
         // add a toggle button for switching between "connexion" and "inscription"
-            ->add('Toggle', CheckboxType::class, [
-                'mapped' => false,
-                'label' => 'Organisez votre journée efficacement',
-                'label_attr' =>[
-                    'class' => 'text-[#717182]'
-                ],
-                'attr' => [
-                    'class' => 'toggle-checkbox  bg-violet-500 rounded-full'
-           
-                ]
-            ])
-
 
             ->add('username', null, [
                 "attr" => [
