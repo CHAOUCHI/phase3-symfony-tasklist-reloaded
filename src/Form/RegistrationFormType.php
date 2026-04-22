@@ -17,22 +17,40 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-             ->add('username',null,[
-                "attr"=>[
-                    "placeholder"=>"nom_utilisateur"
+        // add a toggle button for switching between "connexion" and "inscription"
+            ->add('Toggle', CheckboxType::class, [
+                'mapped' => false,
+                'label' => 'Organisez votre journée efficacement',
+                'label_attr' =>[
+                    'class' => 'text-[#717182]'
+                ],
+                'attr' => [
+                    'class' => 'toggle-checkbox  bg-violet-500 rounded-full',
+                    'data-toggle-target' => '#registration-form',
                 ]
             ])
-            ->add('email',null,[
-                "attr"=>[
-                    "placeholder"=>"votre@email.com"
+
+
+            ->add('username', null, [
+                "attr" => [
+                    "placeholder" => "nom_utilisateur",
+                    "class" => "w-full bg-[#F3F3F5] p-2"
+                ]
+            ])
+            ->add('email', null, [
+                "attr" => [
+                    "placeholder" => "votre@email.com",
+                    "class" => "w-full bg-[#F3F3F5] p-2"
                 ]
             ])
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'mapped' => false,
-                'attr' => ['autocomplete' => 'new-password',
-                 "placeholder"=>"mot de passe"
+                'attr' => [
+                    'autocomplete' => 'new-password',
+                    "placeholder" => "mot de passe",
+                    "class" => "w-full bg-[#F3F3F5] p-2 "
                 ],
                 'constraints' => [
                     new NotBlank(
