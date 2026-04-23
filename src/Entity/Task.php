@@ -3,7 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\TaskRepository;
-use App\enum\taskstatus;
+use App\Enum\TaskStatus;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: TaskRepository::class)]
