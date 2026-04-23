@@ -17,13 +17,16 @@ class TaskType extends AbstractType
     {
         $builder
             ->add('title', null, [
-                "attr" => [
+            "label" => "Titre de la tâche",
+            "attr" => [
+                    
                     "placeholder" => "Ex: Faire les courses",
                     "class" => "w-full bg-[#F3F3F5] p-2"
                 ]
             ])
 
             ->add('status', null, [
+                  "label" => "Priorité",
                 "attr" => [
                     "placeholder" => "Sélectionner une priorité",
                     "class" => "w-full bg-[#F3F3F5] p-2"
@@ -33,6 +36,7 @@ class TaskType extends AbstractType
             ->add('folder', EntityType::class, [
                 'class' => Folder::class,
                 'choice_label' => 'id',
+                 "label" => "Dossier (optionnel)",
                 "attr" => [
                     "placeholder" => "Sélectionner un dossier",
                     "class" => "w-full bg-[#F3F3F5] p-2 mb-4"
