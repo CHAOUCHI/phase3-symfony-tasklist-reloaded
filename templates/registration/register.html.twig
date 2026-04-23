@@ -37,12 +37,7 @@
             {{ form_widget(registrationForm.plainPassword, {'attr': {'class': 'w-full border p-2 bg-gray-100 rounded', 'placeholder': '...............'}}) }}
             {{ form_errors(registrationForm.plainPassword) }}
         </div>
-
-        <div class="mb-4 flex items-center gap-2">
-            {{ form_widget(registrationForm.agreeTerms) }}
-            {{ form_label(registrationForm.agreeTerms, 'Accepter les conditions', {'label_attr': {'class': 'text-sm'}}) }}
-        </div>
-
+        
         <button type="submit" class="w-full bg-black text-white p-2 rounded-md">S'inscrire</button>
     {{ form_end(registrationForm) }}
 </div>
