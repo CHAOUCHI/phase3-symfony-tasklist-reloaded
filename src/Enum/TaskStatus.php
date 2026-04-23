@@ -3,7 +3,7 @@
 namespace App\Enum;
 
 enum TaskStatus: string {
-    case URGENT   = 'urgent';
-    case IMPORTANT = 'important';
-    case NORMAL  = 'normal';
+    case urgent   = 'urgent';
+    case important = 'important';
+    case normal  = 'normal';
 }

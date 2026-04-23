@@ -1,7 +1,7 @@
 {{ form_start(form) }}
     {{ form_widget(form) }}
-    <div class="flex gap-4">
-        <button class="btn text-[#030213]  bg-white rounded-lg p-2 hover:bg-[#030213] hover:text-white">{{ button_label|default('Annuler') }}</button>
-        <button class="btn text-white bg-[#030213] rounded-lg p-2 hover:bg-white hover:text-[#030213]">{{ button_label|default('Créer') }}</button>
+    <div class="flex w-full gap-2 justify-end">
+        <button class="btn w-[35%]  text-[#030213] border-2  border-[#030213] border-solid border-opacity-9 bg-white rounded-lg p-2 hover:bg-[#030213] hover:text-white">{{ button_label|default('Annuler') }}</button>
+        <button class="btn w-[25%] text-white bg-[#030213] rounded-lg p-2 hover:bg-white hover:text-[#030213]">{{ button_label|default('Créer') }}</button>
     </div>
 {{ form_end(form) }}
