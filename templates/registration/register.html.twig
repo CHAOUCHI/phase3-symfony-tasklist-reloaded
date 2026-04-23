@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <div class="bg-blue-300 h-screen">
+        <div class="max-w-sm mx-auto text-white gap-5xl">
+        <h1>Register</h1>
+        </div>
+        {{ form_errors(registrationForm) }}
+        {{ form_start(registrationForm) }}
+            <div class="max-w-sm mx-auto">
+                    {{ form_row(registrationForm.username, {
+                    'attr': {'class': 'rounded-none rounded-e-base block w-full px-3 py-2.5 bg-neutral-secondary-medium border border-white text-heading text-sm rounded-base focus:ring-brand focus:border-brand placeholder:text-body'},
+                    'label_attr': {'class': 'block mb-2.5 text-white font-medium text-heading'}
+                }) }}
+            </div>
+            <div class="max-w-sm mx-auto">
+                {{ form_row(registrationForm.email, {
+                    'attr': {'class': 'bg-neutral-secondary-medium border border-white text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body'},
+                    'label_attr': {'class': 'block mb-2.5 text-white font-medium text-heading'}
+                }) }}
+            </div>
+            <div class="max-w-sm mx-auto">
+                {{ form_row(registrationForm.plainPassword, {
+                    'attr': {'class': 'bg-neutral-secondary-medium border border-white text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow placeholder:text-body'},
+                    'label_attr': {'class': 'block mb-2.5 text-white font-medium text-heading'},
+                    label: 'Password'
+                }) }}
+            </div>
+            <div class="flex items-start mb-5 max-w-sm mx-auto text-white">
+                {{ form_row(registrationForm.agreeTerms, {
+                'attr': {'class': 'ms-2 text-white font-medium text-heading select-none w-4 h-4 border border-default-medium rounded-xs bg-neutral-secondary-medium focus:ring-2 focus:ring-brand-soft'},
+            }) }}
+            </div>
+            <div class="max-w-sm mx-auto">
+            <button type="submit" class="btn text-white bg-brand box-border border border-white hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Register</button>
+            </div>
+        {{ form_end(registrationForm) }}
+    </div>
+{% endblock %}
