@@ -3,17 +3,49 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
 
+
+<div class="h-full min-w-2 p-4 m-4 bg-white 100 rounded-md flex flex-col justify-center align-text-left">
+    <h1 class=" mb-2">Gestion des tâches</h1>
+    <p class="text-gray-400 mb-1">Organisez votre journée efficacement</p>
+
+<div class="flex gap-16 justify-center rounded-md mb-2 bg-gray-100">
+    <button type="submit">Connexion</button>
+    <button type= "submit">Inscription</button>
+</div>
+
+<div class="flex flex-col">
     {{ form_errors(registrationForm) }}
 
     {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+    
+    {# On utilise des div avec 'block' pour forcer le retour à la ligne #}
+        <div class="mb-4 block">
+            {{ form_label(registrationForm.email, null, {'label_attr': {'class': 'block mb-1 '}}) }}
+            {{ form_widget(registrationForm.email, {'attr': {'class': 'w-full border p-2 bg-gray-100 rounded', 'placeholder': 'votre@email.com'}}) }}
+            {{ form_errors(registrationForm.email) }}
+        </div>
 
-        <button type="submit" class="btn">Register</button>
+        <div class="mb-4 block">
+        {{ form_label(registrationForm.username, null, {'label_attr': {'class': 'block mb-1'}}) }}
+        {{ form_widget(registrationForm.username, {'attr': {'class': 'w-full border p-2 bg-gray-100 rounded', 'placeholder': 'nom_utilisateur'}}) }}
+        {{ form_errors(registrationForm.username) }}
+        </div>
+      
+        <div class="mb-4 block">
+            {{ form_label(registrationForm.plainPassword, 'Password', {'label_attr': {'class': 'block mb-1 '}}) }}
+            {{ form_widget(registrationForm.plainPassword, {'attr': {'class': 'w-full border p-2 bg-gray-100 rounded', 'placeholder': '...............'}}) }}
+            {{ form_errors(registrationForm.plainPassword) }}
+        </div>
+
+        <div class="mb-4 flex items-center gap-2">
+            {{ form_widget(registrationForm.agreeTerms) }}
+            {{ form_label(registrationForm.agreeTerms, 'Accepter les conditions', {'label_attr': {'class': 'text-sm'}}) }}
+        </div>
+
+        <button type="submit" class="w-full bg-black text-white p-2 rounded-md">S'inscrire</button>
     {{ form_end(registrationForm) }}
+</div>
+</div>
+
 {% endblock %}
