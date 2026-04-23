@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer une tâche{% endblock %}
+
+{% block body %}
+<section class="h-screen  flex items-center justify-center  gap-4">
+    <h1 class="font-regular mb-4 text-left">Créer une tâche</h1>
+            <p class="text-[#717182] text-sm mb-2">Ajoutez une nouvelle tâche à votre liste</p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Status</th>
+                <th>IsPinned</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+            <tr>
+                <td>{{ task.id }}</td>
+                <td>{{ task.title }}</td>
+                <td>{{ task.status.value }}</td>
+                <td>{{ task.isPinned ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a class="btn text-white bg-[#030213] rounded-lg p-2" href="{{ path('app_task_show', {'id': task.id}) }}">show</a>
+                    <a class="btn text-white bg-[#030213] rounded-lg p-2"  href="{{ path('app_task_edit', {'id': task.id}) }}">edit</a>
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="flex gap-4">
+    <a class="btn text-[#030213] bg-white rounded-lg p-2" href="#">Annuler</a>
+    <a class="btn text-white bg-[#030213] rounded-lg p-2" href="{{ path('app_task_new') }}">Créer</a>
+    </div>
+</section>
+{% endblock %}
