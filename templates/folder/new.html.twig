@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Folder
+{% endblock %}
+
+{% block body %}
+	<div class="grid place-items-center min-h-screen bg-[#e9e9e9fa] ">
+		<div class="bg-white rounded-xl p-7 w-1/3 formShadow">
+			<div class="flex justify-between">
+				<div class="flex flex-col">
+					<h1 class="text-2xl pb-3">Créer un dossier</h1>
+					<p class="text-xl pb-5 text-gray-500">Organisez vos tâches par project</p>
+				</div>
+				<a href="{{ path('app_task_index')}}" class="text-2xl text-gray-500 hover:text-black transitionEffect">x</a>
+			</div>
+
+			{{ include('folder/_formFolder.html.twig') }}
+		</div>
+	</div>
+{% endblock %}

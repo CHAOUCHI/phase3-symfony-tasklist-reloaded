@@ -1,0 +1,46 @@
+{% extends 'auth.layout.html.twig' %}
+
+{% block title %}Log in!
+{% endblock %}
+
+{% block auth_content %}
+	<form method="post">
+		{% if error %}
+			<div class="alert alert-danger text-red-600">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+		{% endif %}
+
+		{% if app.user %}
+			<div class="mb-3">
+				You are logged in as
+				{{ app.user.userIdentifier }},
+				<a href="{{ logout_path() }}">Logout</a>
+			</div>
+		{% endif %}
+		<div class="flex flex-col gap-5">
+			<label for="inputEmail" class="label">Email : </label>
+			<input type="email" value="{{ last_username }}" 
+			name="email" id="inputEmail"
+			placeholder="votre@email.com"
+			class="form-control input" 
+			autocomplete="email"
+			 required autofocus>
+			<label for="inputPassword" class="label">Password : </label>
+			<input type="password" name="password"
+			 id="inputPassword" class="form-control input"
+			 placeholder="*****"
+			  autocomplete="current-password" required>
+			<input type="hidden" name="_csrf_token" data-controller="csrf-protection" value="{{ csrf_token('authenticate') }}">
+
+			<div class="checkbox mb-3">
+				<label class="label">
+					<input type="checkbox" name="_remember_me">
+					Remember me
+				</label>
+			</div>
+
+			<button class="btn rounded-xl bg bg-black text-white text-xl p-3 mt-2 cursor-pointer" type="submit">
+				Conectarse
+			</button>
+		</div>
+	</form>
+{% endblock %}

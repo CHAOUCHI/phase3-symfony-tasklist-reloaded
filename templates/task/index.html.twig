@@ -1,0 +1,144 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Task
+{% endblock %}
+
+{% block body %}
+	<div class="grid md:grid-cols-[minmax(200px,300px)_1fr] min-h-screen">
+		<aside class="bg-[#f9fafb] p-5 flex gap-y-5 border-r-3 border-gray-200 flex-col ">
+			<a href="{{ path('app_task_index')}}" data-turbo-frame="tasks_list_frame" class="cursor-pointer bg-black text-white flex p-3 gap-3 items-center justify-center rounded-xl transitionEffect hover:bg-gray-900">
+				<i class="fa-solid fa-house"></i>
+				Toutes les tâches</a>
+			<p class="text-gray-500 my-7 text-xl tracking-wide">Dossiers</p>
+
+			<div class="flex flex-col gap-y-4 ">
+				{% if folders|length > 0 %}
+					{% for folder in folders %}
+						<div class="flex justify-between cursor-pointer p-1  hover:bg-gray-200 transitionEffect">
+							<div class="flex items-center gap-4">
+								<span class="w-4 h-4 rounded-full" style="background-color: {{ folder.color }}"></span>
+								<a href="{{ path('app_task_index', { folderId: folder.id })}}" class="flex items-center gap-4" data-turbo-frame="tasks_list_frame">
+									<i class="fa-solid fa-folder"></i>
+									{{folder.name}}
+								</a>
+							</div>
+							<p class="pr-5">{{folder.tasks|length}}</p>
+						</div>
+					{% endfor %}
+				{% else %}
+					<p class="text-gray-400 text-xl">Aucune dossier crée</p>
+				{% endif %}
+			</div>
+		</aside>
+		<section class="bg-white">
+			<div class="flex bg-white justify-between py-5 ">
+				<div class="flex flex-col px-3 gap-2">
+					<h1 class="text-2xl">Gestion de Tâches</h1>
+					<p class="text-gray-500">Organisez votre journée efficacement</p>
+				</div>
+				<nav class="flex gap-4 px-7 items-center">
+					<a href="{{path('app_priority_new')}}" class="flex gap-4 items-center">
+						<i class="fa-solid fa-gear"></i>
+						Gérer les priorités
+					</a>
+					<a href="{{ path('app_folder_new')}}" class="btn-nav">
+						<i class="fa-solid fa-folder-plus"></i>
+						Nouveau dossier</a>
+					<a href="{{ path('app_task_new') }}" class="btn-nav bg-black text-white">
+						<i class="fa-solid fa-plus"></i>
+						Nouvelle tâche</a>
+					<a href="{{path('app_logout')}}" class="btn-nav">
+						<i class="fa-solid fa-arrow-right-from-bracket fa-bounce"></i>
+						Desconexion</a>
+				</nav>
+			</div>
+			{#FILTRES#}
+			<div class="bg-[#f9fafb] flex border-y-3 border-gray-200 p-5 gap-x-4 items-center">
+				<div>
+					<i class="fa-solid fa-filter"></i>
+					Filtres:
+				</div>
+				<label for="status">Statut
+				</label>
+				<select name="status" id="status" class="select">
+					<option value="">Tous</option>
+					<option value="">Pending</option>
+					<option value="">Completed</option>
+					<option value="">Archived</option>
+				</select>
+				<label for="priorite">Priorité</label>
+				<select name="priorite" id="priorite" class="select">
+					<option value="">normal</option>
+					<option value="">important</option>
+					<option value="">urgent</option>
+					{% for priority in priorities %}
+						<option value="">{{priority.name}}</option>
+					{% endfor %}
+
+				</select>
+			</div>
+			{#TACHE#}
+
+			<turbo-frame id="tasks_list_frame">
+				{% if tasks|length > 0 %}
+					{% for task in tasks %}
+						<turbo-frame id="task_frame_{{ task.id }}">
+							<div id="task_{{task.id}}" class="flex justify-between items-center border shadow-sm bg-white border-gray-200 rounded-xl m-5">
+								<div class=" flex p-5 gap-7">
+									<form action="{{path('app_task_toggle',{'id': task.id})}}" method="post" class="mt-3" data-turbo="true">
+										<input type="hidden" name="_token" value="{{ csrf_token('toggle' ~ task.id) }}">
+										<input type="checkbox" class="h-5 w-5 rounded border-gray-300 self-center cursor-pointer" onchange="this.form.requestSubmit()" {% if task.status.value == 'completed' %} checked {% endif %}>
+
+									</form>
+
+									<div>
+										{% if task.status.value == "pending" %}
+											<p class="text-xl">{{task.title}}</p>
+											<p class="text-gray-500">En cours</p>
+										{% elseif task.status.value == "completed" %}
+											<p class="text-xl text-gray-500 line-through transitionEffect">{{task.title}}</p>
+											<p class="text-gray-500">Terminé</p>
+										{% elseif task.status.value == "archived" %}
+											<p class="text-xl">{{task.title}}</p>
+											<p class="text-gray-500">Archivée</p>
+										{% else %}
+											<p class="text-xl">{{task.title}}</p>
+											<p class="text-gray-500">task.status.value</p>
+										{% endif %}
+									</div>
+									{#PRIORIDADES#}
+									{% if task.priority is not null %}
+										{% if task.priority.name == "normal" %}
+											<p class="bg-blue-100 border border-blue-200  text-blue-700 px-3 py-0.5 h-8 rounded-md">{{task.Priority.name}}</p>
+										{% elseif task.priority.name == "important" %}
+											<p class="bg-orange-100 border border-orange-200  text-orange-700 px-3 py-0.5 h-8 rounded-md">{{task.Priority.name}}</p>
+										{% elseif task.priority.name == "urgent" %}
+											<p class="bg-red-100 border border-red-200  text-red-700 px-3 py-0.5 h-8 rounded-md">{{task.Priority.name}}</p>
+										{% else %}
+											<p class="bg-gray-100 border border-gray-200  text-gray-700 px-3 py-0.5 h-8 rounded-md">{{task.Priority.name}}</p>
+										{% endif %}
+
+									{% else %}
+										<p class="bg-gray-50 border border-gray-200 text-gray-400 px-3 py-0.5 h-8 rounded-md italic">Sans priorité</p>
+
+									{% endif %}
+
+								</div>
+								{#PIN #}
+								<form action="{{path('app_task_pin',{'id': task.id})}}" method="post" data-turbo-frame="tasks_list_frame">
+									<input type="hidden" name="_token" value="{{ csrf_token('pin' ~ task.id) }}">
+									<button type="submit" class="pr-20 cursor-pointer group">
+										<i class="fa-solid fa-thumbtack transitionEffect hover:text-red-400 {{ task.isPinned ? 'text-red-500' : 'text-black' }} "></i>
+									</button>
+								</form>
+
+							</div>
+						</turbo-frame>
+					{% endfor %}
+				{% else %}
+					<p class="text-center text-gray-500 pt-20">Aucune tache pour le moment, Créez votre première tache!</p>
+				{% endif %}
+			</turbo-frame>
+		</section>
+	</div>
+{% endblock %}
