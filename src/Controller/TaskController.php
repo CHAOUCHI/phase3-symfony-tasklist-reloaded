@@ -26,6 +26,7 @@ final class TaskController extends AbstractController
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $task = new Task();
+
         $task->setUser($this->getUser());
         
 
