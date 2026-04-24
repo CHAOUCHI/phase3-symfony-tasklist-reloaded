@@ -28,7 +28,7 @@ final class TaskController extends AbstractController
         $task = new Task();
 
         $task->setUser($this->getUser());
-        
+
 
         $form = $this->createForm(TaskType::class, $task);
         $form->handleRequest($request);
@@ -80,5 +80,19 @@ final class TaskController extends AbstractController
         }
 
         return $this->redirectToRoute('app_task_index', [], Response::HTTP_SEE_OTHER);
+    }
+
+    #[Route('/{id}/toggle', name: 'app_task_toggle', methods: ['POST'])]
+    public function toggle(Task $task, EntityManagerInterface $entityManager): Response
+    {
+        if ($task->getStatus() === \App\Enum\TaskStatus::completed) {
+            $task->setStatus(\App\Enum\TaskStatus::pending);
+        } else {
+            $task->setStatus(\App\Enum\TaskStatus::completed);
+        }
+
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_task_index');
     }
 }
