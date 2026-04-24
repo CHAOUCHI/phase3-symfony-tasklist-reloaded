@@ -15,7 +15,6 @@ https://github.com/CHAOUCHI/phase3-symfony-tasklist-reloaded
 
 ## Objectif pédagogique : le CRUD, les relations SQL simples et l'authentification.
 
-
 ## Critères d'évaluation :
 |Critères|Description|
 |-|-|

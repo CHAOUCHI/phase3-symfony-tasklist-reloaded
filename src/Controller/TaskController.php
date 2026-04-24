@@ -52,7 +52,7 @@ final class TaskController extends AbstractController
         $taskId = $task->getUser()->getId();
         $csrfToken = $request->getPayload()->get("token");
         
-        if($taskId != $user->getId() || !$this->isCsrfTokenValid($taskId,$csrfToken))
+        if($taskId != $user->getId() || !$this->isCsrfTokenValid('validate-'.$taskId,$csrfToken))
         {
             return $this->redirectToRoute('app_dashboard',[],Response::HTTP_UNAUTHORIZED);
         }
