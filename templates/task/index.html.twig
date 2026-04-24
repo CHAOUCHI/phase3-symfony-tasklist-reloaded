@@ -11,10 +11,15 @@
         <p class="text-[#717182] text-sm mb-2">Organisez votre journée efficacement</p>
     </div>
     <div class="mt-5 flex lg:mt-0 lg:ml-4">
-      
+
         <span class="flex flex-col gap-2">
             <a href="#"
-                class="block px-4 py-2 text-sm text-white bg-[#030213] hover:bg-white hover:text-[#030213] focus:outline-hidden rounded-md"><svg class=" w-6 h-6 bg-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="#0a0a0a" d="M259.1 73.5C262.1 58.7 275.2 48 290.4 48L350.2 48C365.4 48 378.5 58.7 381.5 73.5L396 143.5C410.1 149.5 423.3 157.2 435.3 166.3L503.1 143.8C517.5 139 533.3 145 540.9 158.2L570.8 210C578.4 223.2 575.7 239.8 564.3 249.9L511 297.3C511.9 304.7 512.3 312.3 512.3 320C512.3 327.7 511.8 335.3 511 342.7L564.4 390.2C575.8 400.3 578.4 417 570.9 430.1L541 481.9C533.4 495 517.6 501.1 503.2 496.3L435.4 473.8C423.3 482.9 410.1 490.5 396.1 496.6L381.7 566.5C378.6 581.4 365.5 592 350.4 592L290.6 592C275.4 592 262.3 581.3 259.3 566.5L244.9 496.6C230.8 490.6 217.7 482.9 205.6 473.8L137.5 496.3C123.1 501.1 107.3 495.1 99.7 481.9L69.8 430.1C62.2 416.9 64.9 400.3 76.3 390.2L129.7 342.7C128.8 335.3 128.4 327.7 128.4 320C128.4 312.3 128.9 304.7 129.7 297.3L76.3 249.8C64.9 239.7 62.3 223 69.8 209.9L99.7 158.1C107.3 144.9 123.1 138.9 137.5 143.7L205.3 166.2C217.4 157.1 230.6 149.5 244.6 143.4L259.1 73.5zM320.3 400C364.5 399.8 400.2 363.9 400 319.7C399.8 275.5 363.9 239.8 319.7 240C275.5 240.2 239.8 276.1 240 320.3C240.2 364.5 276.1 400.2 320.3 400z"/></svg>Gérer
+                class="block px-4 py-2 text-sm text-white bg-[#030213] hover:bg-white hover:text-[#030213] focus:outline-hidden rounded-md"><svg
+                    class=" w-6 h-6 bg-white" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 640 640"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+                    <path fill="#0a0a0a"
+                        d="M259.1 73.5C262.1 58.7 275.2 48 290.4 48L350.2 48C365.4 48 378.5 58.7 381.5 73.5L396 143.5C410.1 149.5 423.3 157.2 435.3 166.3L503.1 143.8C517.5 139 533.3 145 540.9 158.2L570.8 210C578.4 223.2 575.7 239.8 564.3 249.9L511 297.3C511.9 304.7 512.3 312.3 512.3 320C512.3 327.7 511.8 335.3 511 342.7L564.4 390.2C575.8 400.3 578.4 417 570.9 430.1L541 481.9C533.4 495 517.6 501.1 503.2 496.3L435.4 473.8C423.3 482.9 410.1 490.5 396.1 496.6L381.7 566.5C378.6 581.4 365.5 592 350.4 592L290.6 592C275.4 592 262.3 581.3 259.3 566.5L244.9 496.6C230.8 490.6 217.7 482.9 205.6 473.8L137.5 496.3C123.1 501.1 107.3 495.1 99.7 481.9L69.8 430.1C62.2 416.9 64.9 400.3 76.3 390.2L129.7 342.7C128.8 335.3 128.4 327.7 128.4 320C128.4 312.3 128.9 304.7 129.7 297.3L76.3 249.8C64.9 239.7 62.3 223 69.8 209.9L99.7 158.1C107.3 144.9 123.1 138.9 137.5 143.7L205.3 166.2C217.4 157.1 230.6 149.5 244.6 143.4L259.1 73.5zM320.3 400C364.5 399.8 400.2 363.9 400 319.7C399.8 275.5 363.9 239.8 319.7 240C275.5 240.2 239.8 276.1 240 320.3C240.2 364.5 276.1 400.2 320.3 400z" />
+                </svg>Gérer
                 les priorités</a>
 
         </span>
@@ -74,33 +79,33 @@
 
 
 <section class="h-screen  flex items-center justify-center">
-    <table class="table bg-white  rounded-lg shadow-md  gap-4">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Status</th>
-                <th>IsPinned</th>
-                <th>actions</th>
-            </tr>
-        </thead>
+    <table class="w-full max-w-2xl border-separate border-spacing-y-3">
         <tbody>
             {% for task in tasks %}
-            <tr class=" border-[#aa1234] border-solid border-2 ">
-                <td >{{ task.id }}</td>
-                <td>{{ task.title }}</td>
-                <td>{{ task.status.value }}</td>
-                <td>{{ task.isPinned ? 'Yes' : 'No' }}</td>
-                <td>
-                    <a class="btn text-white bg-[#030213] rounded-lg p-2"
-                        href="{{ path('app_task_show', {'id': task.id}) }}">show</a>
-                    <a class="btn text-white bg-[#030213] rounded-lg p-2"
-                        href="{{ path('app_task_edit', {'id': task.id}) }}">edit</a>
+            <tr class="bg-white shadow-sm rounded-xl">
+                <td class="pl-4 py-3 rounded-l-xl w-8">
+                    <input type="checkbox" class="w-4 h-4 rounded border-gray-300 m-4">
+                </td>
+                <td class="py-3">
+                    <div class="flex items-center gap-2">
+                        <span class="font-medium text-gray-900">{{ task.title }}</span>
+                        {% if task.status.value == 'urgent' %}
+                        <span class="text-xs px-2 py-0.5 rounded-full bg-red-100 text-red-500">urgent</span>
+                        {% elseif task.status.value == 'important' %}
+                        <span class="text-xs px-2 py-0.5 rounded-full bg-orange-100 text-orange-400">important</span>
+                        {% else %}
+                        <span class="text-xs px-2 py-0.5 rounded-full bg-blue-100 text-blue-400">normal</span>
+                        {% endif %}
+                    </div>
+                    <p class="text-sm text-gray-400">En cours</p>
+                </td>
+                <td class="pr-4 py-3 rounded-r-xl text-right">
+                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="#0a0a0a" d="M32 32C32 14.3 46.3 0 64 0L320 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-29.5 0 10.3 134.1c37.1 21.2 65.8 56.4 78.2 99.7l3.8 13.4c2.8 9.7 .8 20-5.2 28.1S362 352 352 352L32 352c-10 0-19.5-4.7-25.5-12.7s-8-18.4-5.2-28.1L5 297.8c12.4-43.3 41-78.5 78.2-99.7L93.5 64 64 64C46.3 64 32 49.7 32 32zM160 400l64 0 0 112c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-112z"/></svg>
                 </td>
             </tr>
             {% else %}
             <tr>
-                <td colspan="5">pas de donnée trouvée</td>
+                <td colspan="3" class="text-center text-gray-400 text-sm">Pas de tâche trouvée.</td>
             </tr>
             {% endfor %}
         </tbody>

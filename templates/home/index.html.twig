@@ -3,5 +3,110 @@
 {% block title %}Home{% endblock %}
 
 {% block body %}
+<div class="flex bg-white items-center justify-between  border-gray-200 px-4 py-4 sm:px-6 lg:px-8">
+    <div class="min-w-0 flex-1">
+        <h1 class="text-2xl/7 font-bold text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">Gestion de Tâches</h1>
+        <p class="text-[#717182] text-sm mb-2">Organisez votre journée efficacement</p>
+    </div>
+    <div class="mt-5 flex lg:mt-0 lg:ml-4">
+      
+        <span class="flex flex-col gap-2">
+            <a href="#"
+                class="block px-4 py-2 text-sm text-white bg-[#030213] hover:bg-white hover:text-[#030213] focus:outline-hidden rounded-md"><svg class=" w-6 h-6 bg-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="#0a0a0a" d="M259.1 73.5C262.1 58.7 275.2 48 290.4 48L350.2 48C365.4 48 378.5 58.7 381.5 73.5L396 143.5C410.1 149.5 423.3 157.2 435.3 166.3L503.1 143.8C517.5 139 533.3 145 540.9 158.2L570.8 210C578.4 223.2 575.7 239.8 564.3 249.9L511 297.3C511.9 304.7 512.3 312.3 512.3 320C512.3 327.7 511.8 335.3 511 342.7L564.4 390.2C575.8 400.3 578.4 417 570.9 430.1L541 481.9C533.4 495 517.6 501.1 503.2 496.3L435.4 473.8C423.3 482.9 410.1 490.5 396.1 496.6L381.7 566.5C378.6 581.4 365.5 592 350.4 592L290.6 592C275.4 592 262.3 581.3 259.3 566.5L244.9 496.6C230.8 490.6 217.7 482.9 205.6 473.8L137.5 496.3C123.1 501.1 107.3 495.1 99.7 481.9L69.8 430.1C62.2 416.9 64.9 400.3 76.3 390.2L129.7 342.7C128.8 335.3 128.4 327.7 128.4 320C128.4 312.3 128.9 304.7 129.7 297.3L76.3 249.8C64.9 239.7 62.3 223 69.8 209.9L99.7 158.1C107.3 144.9 123.1 138.9 137.5 143.7L205.3 166.2C217.4 157.1 230.6 149.5 244.6 143.4L259.1 73.5zM320.3 400C364.5 399.8 400.2 363.9 400 319.7C399.8 275.5 363.9 239.8 319.7 240C275.5 240.2 239.8 276.1 240 320.3C240.2 364.5 276.1 400.2 320.3 400z"/></svg>Gérer
+                les priorités</a>
 
+        </span>
+        <span class="hidden sm:block">
+            <a href="#"
+                class="block px-4 py-2 text-sm text-white bg-[#030213] hover:bg-white hover:text-[#030213] focus:outline-hidden rounded-md">Nouveau
+                dossier</a>
+
+        </span>
+
+        <span class="ml-3 hidden sm:block">
+            <a href="#"
+                class="block px-4 py-2 text-sm text-white bg-[#030213] hover:bg-white hover:text-[#030213] focus:outline-hidden rounded-md">Nouvelle
+                tâche</a>
+
+        </span>
+
+        <span class="sm:ml-3">
+            <a href="#"
+                class="block px-4 py-2 text-sm text-white bg-[#030213] hover:bg-white hover:text-[#030213] focus:outline-hidden rounded-md">Déconnexion</a>
+        </span>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="w3-sidebar w3-bar-block w3-light-grey w3-card" style="width:30%">
+    <a href="#" class="w3-bar-item w3-button">Link 1</a>
+    <a href="#" class="w3-bar-item w3-button">Link 2</a>
+    <div class="w3-dropdown-hover">
+        <button class="w3-button">Dropdown
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="w3-dropdown-content w3-bar-block">
+            <a href="#" class="w3-bar-item w3-button">Link</a>
+            <a href="#" class="w3-bar-item w3-button">Link</a>
+        </div>
+    </div>
+    <a href="#" class="w3-bar-item w3-button">Link 3</a>
+</div>
+
+<div style="margin-left:30%">
+
+    <div class="w3-container">
+        <h2>Dropdown in Sidebar</h2>
+        <p>In this example, we have added a dropdown menu inside the sidebar.</p>
+        <p>Notice the caret-down icon, which we use to indicate that this is a dropdown menu.</p>
+    </div>
+
+</div>
+
+
+
+<section class="h-screen  flex items-center justify-center">
+    <table class="table bg-white  rounded-lg shadow-md  gap-4">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Status</th>
+                <th>IsPinned</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+            <tr class=" border-[#aa1234] border-solid border-2 ">
+                <td >{{ task.id }}</td>
+                <td>{{ task.title }}</td>
+                <td>{{ task.status.value }}</td>
+                <td>{{ task.isPinned ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a class="btn text-white bg-[#030213] rounded-lg p-2"
+                        href="{{ path('app_task_show', {'id': task.id}) }}">show</a>
+                    <a class="btn text-white bg-[#030213] rounded-lg p-2"
+                        href="{{ path('app_task_edit', {'id': task.id}) }}">edit</a>
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="5">pas de donnée trouvée</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="flex gap-4">
+        <a class="btn text-[#030213] bg-white rounded-lg p-2" href="#">Annuler</a>
+        <a class="btn text-white bg-[#030213] rounded-lg p-2" href="{{ path('app_task_new') }}">Créer</a>
+    </div>
+</section>
 {% endblock %}
