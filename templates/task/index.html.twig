@@ -73,11 +73,8 @@
 
 
 
-<section class="h-screen  flex items-center justify-center  gap-4">
-    <h2 class="font-regular mb-4 text-left">Créer une tâche</h2>
-
-
-    <table class="table">
+<section class="h-screen  flex items-center justify-center">
+    <table class="table bg-white  rounded-lg shadow-md  gap-4">
         <thead>
             <tr>
                 <th>Id</th>
@@ -89,8 +86,8 @@
         </thead>
         <tbody>
             {% for task in tasks %}
-            <tr>
-                <td>{{ task.id }}</td>
+            <tr class=" border-[#aa1234] border-solid border-2 ">
+                <td >{{ task.id }}</td>
                 <td>{{ task.title }}</td>
                 <td>{{ task.status.value }}</td>
                 <td>{{ task.isPinned ? 'Yes' : 'No' }}</td>
@@ -103,7 +100,7 @@
             </tr>
             {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5">pas de donnée trouvée</td>
             </tr>
             {% endfor %}
         </tbody>
