@@ -95,4 +95,12 @@ final class TaskController extends AbstractController
 
         return $this->redirectToRoute('app_task_index');
     }
+    #[Route('/{id}/pin', name: 'app_task_pin', methods: ['POST'])]
+    public function pin(Task $task, EntityManagerInterface $entityManager): Response
+    {
+        $task->setIsPinned(!$task->isPinned());
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_task_index');
+    }
 }
