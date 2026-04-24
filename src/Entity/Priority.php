@@ -17,7 +17,7 @@ class Priority
     #[ORM\Column]
     private ?int $importance = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, unique: true)]
     private ?string $name = null;
 
     
