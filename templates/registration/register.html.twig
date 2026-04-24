@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+    
+    {% block body %}
+    <div class="min-h-screen bg-blue-300 flex items-center justify-center">
+    <div class="bg-white rounded-2xl shadow-md p-8 w-full max-w-md">
+        
+        <h1 class="text-2xl font-bold text-gray-800 mb-1">Gestion de Tâches</h1>
+        <p class="text-gray-400 text-sm mb-6">Organisez votre journée efficacement</p>
+
+        {# Tabs Connexion / Inscription #}
+        <div class="flex rounded-lg overflow-hidden border border-gray-200 mb-6">
+            <a href="/login" class="w-1/2 text-center py-2 text-gray-500 hover:bg-gray-100">
+                Connexion
+            </a>
+            <a href="/register" class="w-1/2 text-center py-2 bg-white font-semibold text-gray-800 border-l border-gray-200">
+                Inscription
+            </a>
+        </div>
+
+        {{ form_start(registrationForm) }}
+        
+            <div class="mb-4">
+                <label class="block text-sm text-gray-700 mb-1">Nom d'utilisateur</label>
+                    {{ form_widget(registrationForm.username, {
+                        'attr': {'class': 'w-full border border-gray-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300', 'placeholder': 'nom_utilisateur'}
+                     }) }}
+            </div>
+
+            <div class="mb-4">
+                <label class="block text-sm text-gray-700 mb-1">Email</label>
+                {{ form_widget(registrationForm.email, {
+                    'attr': {'class': 'w-full border border-gray-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300', 'placeholder': 'votre@email.com'}
+                }) }}
+            </div>
+
+            <div class="mb-6">
+                <label class="block text-sm text-gray-700 mb-1">Mot de passe</label>
+                {{ form_widget(registrationForm.plainPassword, {
+                    'attr': {'class': 'w-full border border-gray-200 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300'}
+                }) }}
+            </div>
+
+            <button type="submit" class="w-full bg-gray-800 text-white py-3 rounded-lg text-sm font-semibold hover:bg-gray-700">
+                S'inscrire
+            </button>
+
+        {{ form_end(registrationForm) }}
+
+    </div>
+</div>
+{% endblock %}
