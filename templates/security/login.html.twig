@@ -35,7 +35,7 @@
             {# Jeton de sécurité CSRF #}
             <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-            <button type="submit" class="w-full bg-black text-white p-2 rounded-md">Se connecter</button>
+            <a href="{{path('\app_dasboard')}}" class="w-full bg-black text-white p-2 rounded-md">Se connecter</a>
         </form>
     </div>
 </div>
