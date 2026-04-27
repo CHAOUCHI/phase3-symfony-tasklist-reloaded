@@ -14,7 +14,7 @@
 
         <span class="flex flex-col gap-2">
             <a href="#"
-                class="block px-4 py-2 text-sm text-white bg-[#030213] hover:bg-white hover:text-[#030213] focus:outline-hidden rounded-md"><svg
+                class="block px-4 py-2 text-sm  text-[#030213] bg-white hover:bg-white hover:text-[#030213] focus:outline-hidden rounded-md"><svg
                     class=" w-6 h-6 bg-white" xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 640 640"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
                     <path fill="#0a0a0a"
@@ -24,24 +24,38 @@
 
         </span>
         <span class="hidden sm:block">
-            <a href="#"
-                class="block px-4 py-2 text-sm text-white bg-[#030213] hover:bg-white hover:text-[#030213] focus:outline-hidden rounded-md">Nouveau
+            <a href="#" class="block px-4 py-2 text-sm border-1 border-[#030213]/75  focus:outline-hidden rounded-md">
+                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+                    <path fill="#0a0a0a"
+                        d="M512 384c0 35.3-28.7 64-64 64L64 448c-35.3 0-64-28.7-64-64L0 96C0 60.7 28.7 32 64 32l138.7 0c13.8 0 27.3 4.5 38.4 12.8l38.4 28.8c5.5 4.2 12.3 6.4 19.2 6.4L448 80c35.3 0 64 28.7 64 64l0 240zM256 160c-13.3 0-24 10.7-24 24l0 48-48 0c-13.3 0-24 10.7-24 24s10.7 24  24 24l48 0 0 48c0 13.3 10.7 24 24 24s24-10.7 24-24l0-48 48 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-48 0 0-48c0-13.3-10.7-24-24-24z" />
+
+                </svg>Nouveau
                 dossier</a>
 
         </span>
 
         <span class="ml-3 hidden sm:block">
             <a href="#"
-                class="block px-4 py-2 text-sm text-white bg-[#030213] hover:bg-white hover:text-[#030213] focus:outline-hidden rounded-md">Nouvelle
+                class="block px-4 py-2 text-sm text-white bg-[#030213] hover:bg-white hover:text-[#030213] focus:outline-hidden rounded-md">
+                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+                    <path fill="rgb(255, 255, 255)"
+                        d="M256 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 160-160 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l160 0 0 160c0 17.7 14.3 32 32 32s32-14.3 32-32l0-160 160 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-160 0 0-160z" />
+                </svg>
+                Nouvelle
                 tâche</a>
 
         </span>
 
         <span class="sm:ml-3">
             <a href="#"
-                class="block px-4 py-2 text-sm text-white bg-[#030213] hover:bg-white hover:text-[#030213] focus:outline-hidden rounded-md">Déconnexion</a>
+                class="block px-4 py-2 text-sm text-[#030213] bg-white  hover:text-[#030213] focus:outline-hidden rounded-md">
+                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M160 96c17.7 0 32-14.3 32-32s-14.3-32-32-32L96 32C43 32 0 75 0 128L0 384c0 53 43 96 96 96l64 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32l0-256c0-17.7 14.3-32 32-32l64 0zM502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-1２.5 ３２.８ ０ ４５.３s３２.８ １２.５ ４５.３ ０l１２８-１２８z" fill="#0a0a0a" /></svg>
+                Déconnexion</a>
         </span>
 
+
     </div>
 </div>
 
@@ -49,95 +63,169 @@
 
 
 
+<!-- Toucher ici bref ici faire la navigation latéral gauche -->
 
 
-<div class="w3-sidebar w3-bar-block w3-light-grey w3-card" style="width:30%">
-    <a href="#" class="w3-bar-item w3-button">Link 1</a>
-    <a href="#" class="w3-bar-item w3-button">Link 2</a>
-    <div class="w3-dropdown-hover">
-        <button class="w3-button">Dropdown
-            <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="w3-dropdown-content w3-bar-block">
-            <a href="#" class="w3-bar-item w3-button">Link</a>
-            <a href="#" class="w3-bar-item w3-button">Link</a>
+<div class="flex min-h-screen">
+
+
+    <aside class="w-56 min-h-screen bg-[#F9FAFB] flex flex-col py-4 gap-1 shrink-0">
+
+
+        <div class="px-3 pb-4 border-b border-white/10 mb-2">
+            <a href="#"
+                class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg bg-white/10 text-[#030213] text-sm font-medium hover:bg-white/15 transition-colors">
+                <svg class="w-4 h-4 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 11l3 3L22 4" />
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                </svg>
+                Toutes les tâches
+            </a>
         </div>
-    </div>
-    <a href="#" class="w3-bar-item w3-button">Link 3</a>
+
+        <div class="px-3">
+            <p class="text-[11px] font-medium tracking-widest uppercase text-[#030213]/30 ml-3 mb-2">Dossiers</p>
+
+
+            <a href="#"
+                class="flex items-center justify-between gap-2 px-3 py-2 rounded-lg text-[#030213]/75 text-sm hover:bg-[#030213]/8 hover:text-[#030213] transition-colors">
+                <span class="flex items-center gap-2.5">
+                    <span class="w-2 h-2 rounded-full bg-green-400 shrink-0"></span>
+                    <svg class="w-3.5 h-3.5 opacity-60 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
+                    </svg>
+
+                </span>
+                <span class="bg-[#030213]/10 text-[#030213]/40 text-[11px] px-1.5 py-0.5 rounded-full">
+
+                </span>
+            </a>
+
+            <a href="#"
+                class="flex items-center justify-between gap-2 px-3 py-2 rounded-lg text-[#030213]/75 text-sm hover:bg-[#030213]/8 hover:text-[#030213] transition-colors">
+                <span class="flex items-center gap-2.5">
+                    <span class="w-2 h-2 rounded-full bg-green-400 shrink-0"></span>
+                    <svg class="w-3.5 h-3.5 opacity-60 shrink-0 text-sm" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                    </svg>
+                    Maison
+                </span>
+                <span class="bg-[#030213]/10 text-[#030213]/40 text-[11px] px-1.5 py-0.5 rounded-full">1</span>
+            </a>
+
+
+
+            <a href="#"
+                class="flex items-center justify-between gap-2 px-3 py-2 rounded-lg text-white/30 text-sm hover:bg-white/5 hover:text-white/60 transition-colors mt-1">
+                <span class="flex items-center gap-2.5">
+                    <span class="w-2 h-2 rounded-full border border-white/20 shrink-0"></span>
+                    <svg class="w-3.5 h-3.5 opacity-40" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
+                    </svg>
+                    Nouveau dossier
+                </span>
+                <svg class="w-3.5 h-3.5 opacity-30" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor" stroke-width="2">
+                    <line x1="12" y1="5" x2="12" y2="19" />
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                </svg>
+            </a>
+        </div>
+
+
+        <div class="mt-auto px-3 pt-3 border-t border-white/8">
+            <a href="#"
+                class="flex items-center gap-2 px-3 py-2 rounded-lg text-white/30 text-xs hover:text-white/60 transition-colors">
+                <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="3" />
+                    <path
+                        d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                </svg>
+                Gérer priorités
+            </a>
+        </div>
+    </aside>
+
+
+    <main class="flex-1">
+        <section class="h-screen  flex items-center justify-center">
+            <table class="w-full max-w-2xl border-separate border-spacing-y-3 m-2">
+                <tbody>
+                    {% for task in tasks %}
+                    <tr class="bg-white shadow-sm rounded-xl">
+                        <td class="pl-4 py-3 rounded-l-xl w-8">
+                            <form method="post" action="{{ path('app_task_toggle', {'id': task.id}) }}">
+                                <input type="hidden" name="_token" value="{{ csrf_token('toggle' ~ task.id) }}">
+                                <input type="checkbox" class="w-4 h-4 rounded border-gray-300 m-4 cursor-pointer" {{
+                                    task.status.value=='completed' ? 'checked' : '' }} onchange="this.form.submit()">
+                            </form>
+                        </td>
+                        <td class="py-3">
+                            <div class="flex items-center gap-2">
+                                <span class="font-medium text-gray-900">{{ task.title }}</span>
+                                {% if task.priority %}
+                                {% if task.priority.level == 'urgent' %}
+                                <span class="text-xs px-2 py-0.5 rounded-full bg-red-100 text-red-500">urgent</span>
+                                {% elseif task.priority.level == 'important' %}
+                                <span
+                                    class="text-xs px-2 py-0.5 rounded-full bg-orange-100 text-orange-400">important</span>
+                                {% else %}
+                                <span class="text-xs px-2 py-0.5 rounded-full bg-blue-100 text-blue-400">normal</span>
+                                {% endif %}
+                                {% else %}
+                                <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 text-gray-400">sans
+                                    priorité</span>
+                                {% endif %}
+                            </div>
+                            <p class="text-sm text-gray-400">{{ task.status.value }}</p>
+                        </td>
+                        <td class="pr-4 py-3 rounded-r-xl text-right">
+                            <form method="post" action="{{ path('app_task_pin', {'id': task.id}) }}">
+                                <input type="hidden" name="_token" value="{{ csrf_token('pin' ~ task.id) }}">
+                                <button type="submit" class="cursor-pointer bg-transparent border-none">
+                                    {% if task.isPinned %}
+
+                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                                        <path fill="#0a0a0a"
+                                            d="M32 32C32 14.3 46.3 0 64 0L320 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-29.5 0 10.3 134.1c37.1 21.2 65.8 56.4 78.2 99.7l3.8 13.4c2.8 9.7 .8 20-5.2 28.1S362 352 352 352L32 352c-10 0-19.5-4.7-25.5-12.7s-8-18.4-5.2-28.1L5 297.8c12.4-43.3 41-78.5 78.2-99.7L93.5 64 64 64C46.3 64 32 49.7 32 32zM160 400l64 0 0 112c0 17.7-14.3 32-32 32s-32-14.3-32-32L160 400z" />
+                                    </svg>
+                                    {% else %}
+                                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                                        <path fill="#0a0a0a"
+                                            d="M41-24.9c-9.4-9.4-24.6-9.4-33.9 0S-2.3-.3 7 9.1l528 528c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9L417.8 352 448 352c10 0 19.5-4.7 25.5-12.7s8-18.4 5.2-28.1L475 297.8c-12.4-43.3-41-78.5-78.2-99.7L386.5 64 416 64c17.7 0 32-14.3 32-32S433.7 0 416 0L160 0c-7.4 0-14.1 2.5-19.5 6.6L190.1 56.3 185.3 119.4 41-24.9zM282.2 352L149.7 219.6c-22.7 20.5-39.8 47.4-48.7 78.3l-3.8 13.4c-2.8 9.7-.8 20 5.2 28.1S118 352 128 352l154.2 0zM256 512c0 17.7 14.3 32 32 32s32-14.3 32-32l0-112-64 0 0 112z" />
+                                    </svg>
+                                    {% endif %}
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="3" class="text-center text-gray-400 text-sm">Pas de tâche trouvée.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <div class="flex gap-4">
+                <a class="btn text-[#030213] bg-white rounded-lg p-2" href="#">Annuler</a>
+                <a class="btn text-white bg-[#030213] rounded-lg p-2" href="{{ path('app_task_new') }}">Créer</a>
+            </div>
+        </section>
+    </main>
+
 </div>
 
-<div style="margin-left:30%">
-
-    <div class="w3-container">
-        <h2>Dropdown in Sidebar</h2>
-        <p>In this example, we have added a dropdown menu inside the sidebar.</p>
-        <p>Notice the caret-down icon, which we use to indicate that this is a dropdown menu.</p>
-    </div>
-
-</div>
 
 
 
-<section class="h-screen  flex items-center justify-center">
-    <table class="w-full max-w-2xl border-separate border-spacing-y-3">
-        <tbody>
-            {% for task in tasks %}
-            <tr class="bg-white shadow-sm rounded-xl">
-                <td class="pl-4 py-3 rounded-l-xl w-8">
-                    <form method="post" action="{{ path('app_task_toggle', {'id': task.id}) }}">
-                        <input type="hidden" name="_token" value="{{ csrf_token('toggle' ~ task.id) }}">
-                        <input type="checkbox" class="w-4 h-4 rounded border-gray-300 m-4 cursor-pointer" {{
-                            task.status.value=='completed' ? 'checked' : '' }} onchange="this.form.submit()">
-                    </form>
-                </td>
-                <td class="py-3">
-                    <div class="flex items-center gap-2">
-                        <span class="font-medium text-gray-900">{{ task.title }}</span>
-                        {% if task.priority %}
-                        {% if task.priority.level == 'urgent' %}
-                        <span class="text-xs px-2 py-0.5 rounded-full bg-red-100 text-red-500">urgent</span>
-                        {% elseif task.priority.level == 'important' %}
-                        <span class="text-xs px-2 py-0.5 rounded-full bg-orange-100 text-orange-400">important</span>
-                        {% else %}
-                        <span class="text-xs px-2 py-0.5 rounded-full bg-blue-100 text-blue-400">normal</span>
-                        {% endif %}
-                        {% else %}
-                        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 text-gray-400">sans priorité</span>
-                        {% endif %}
-                    </div>
-                    <p class="text-sm text-gray-400">{{ task.status.value }}</p>
-                </td>
-                <td class="pr-4 py-3 rounded-r-xl text-right">
-                    <form method="post" action="{{ path('app_task_pin', {'id': task.id}) }}">
-                        <input type="hidden" name="_token" value="{{ csrf_token('pin' ~ task.id) }}">
-                        <button type="submit" class="cursor-pointer bg-transparent border-none">
-                            {% if task.isPinned %}
-
-                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-                                <path fill="#0a0a0a"
-                                    d="M32 32C32 14.3 46.3 0 64 0L320 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-29.5 0 10.3 134.1c37.1 21.2 65.8 56.4 78.2 99.7l3.8 13.4c2.8 9.7 .8 20-5.2 28.1S362 352 352 352L32 352c-10 0-19.5-4.7-25.5-12.7s-8-18.4-5.2-28.1L5 297.8c12.4-43.3 41-78.5 78.2-99.7L93.5 64 64 64C46.3 64 32 49.7 32 32zM160 400l64 0 0 112c0 17.7-14.3 32-32 32s-32-14.3-32-32L160 400z" />
-                            </svg>
-                            {% else %}
-                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                                <path fill="#0a0a0a"
-                                    d="M41-24.9c-9.4-9.4-24.6-9.4-33.9 0S-2.3-.3 7 9.1l528 528c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9L417.8 352 448 352c10 0 19.5-4.7 25.5-12.7s8-18.4 5.2-28.1L475 297.8c-12.4-43.3-41-78.5-78.2-99.7L386.5 64 416 64c17.7 0 32-14.3 32-32S433.7 0 416 0L160 0c-7.4 0-14.1 2.5-19.5 6.6L190.1 56.3 185.3 119.4 41-24.9zM282.2 352L149.7 219.6c-22.7 20.5-39.8 47.4-48.7 78.3l-3.8 13.4c-2.8 9.7-.8 20 5.2 28.1S118 352 128 352l154.2 0zM256 512c0 17.7 14.3 32 32 32s32-14.3 32-32l0-112-64 0 0 112z" />
-                            </svg>
-                            {% endif %}
-                        </button>
-                    </form>
-                </td>
-            </tr>
-            {% else %}
-            <tr>
-                <td colspan="3" class="text-center text-gray-400 text-sm">Pas de tâche trouvée.</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-
-    <div class="flex gap-4">
-        <a class="btn text-[#030213] bg-white rounded-lg p-2" href="#">Annuler</a>
-        <a class="btn text-white bg-[#030213] rounded-lg p-2" href="{{ path('app_task_new') }}">Créer</a>
-    </div>
-</section>
 {% endblock %}
