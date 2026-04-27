@@ -5,13 +5,13 @@
 {% block body %}
 
 
-<div class="h-full min-w-2 p-4 m-4 bg-white 100 rounded-md flex flex-col justify-center align-text-left">
+<div class="h-full min-w-2 p-4 m-4 bg-white 100 rounded-lg flex flex-col justify-center align-text-left">
     <h1 class=" mb-2">Gestion des tâches</h1>
     <p class="text-gray-400 mb-1">Organisez votre journée efficacement</p>
 
-<div class="flex gap-16 justify-center rounded-md mb-2 bg-gray-100">
-    <button type="submit">Connexion</button>
-    <button type= "submit">Inscription</button>
+<div class="grid grid-cols-2 gap-16 h-10 justify-center items-center text-center rounded-2xl mb-2 bg-gray-100">
+    <a href="{{path('app_login')}}" class="bg-gray-100  h-7 rounded-2xl" type="submit">Connexion</a>
+    <a href="{{path('app_register')}}" class="bg-white h-7 rounded-2xl" type= "submit">Inscription</a>
 </div>
 
 <div class="flex flex-col">
