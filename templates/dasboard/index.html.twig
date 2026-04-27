@@ -7,41 +7,70 @@
  
 </style>
 
-<div class=" flex  p-6 gap-6">
-    <div class=" flex flex-col max-h-full px-2 py-4 bg-red-300 gap-4">
-        <button> Toutes les tâches</button>
+<div class=" flex  p-6 gap-6 text-xs">
+    <div class=" flex flex-col h-max px-2 py-4 bg-red-300 gap-4">
+        <a href="{{path ('\app_task_index')}}"> Toutes les tâches</a>
         <h1>
             DOSSIERS
         </h1>
         <p> Maison </p>
-    </div>
-    
+ 
+ </div>
+    <section class="ContainerRight  flex-1 flex-col bg bg-gray-400  ">
     <div class="gestion-taches flex justify-between w-full px-2 py-4 bg-green-200">
        <div class="gap-2">
          <h1>Gestion des Tâches</h1>
-        <p>Organisez votre journée efficacement</p>
+        <p class="text-gray-500">Organisez votre journée efficacement</p>
        </div>  
 
-       <div class=" flex bg-amber-400 gap-3 ">
+       <div class=" flex bg-amber-400 px-2 py-4 gap-6 ">
         <!-- <a href="" class="w-full"> -->
-        <button>Gérer les priorités</button>
+        <a herf="{{ path('\app_register') }}" class="w-full bg-white text-black p-1 rounded-md">Gérer les priorités</a>
         <!-- </a> -->
-        <button>Nouveau dossier</button>
-        <button>Nouvelle tâche</button>
-        <button>Déconnexion</button>
+        <a href="{{path('\app_register')}}" class="w-full bg-white text-black p-1 rounded-md">Nouveau dossier</button>
+        <a href="{{ path('\app_task_new')}}" class="w-full bg-black text-white p-1 rounded-md">Nouvelle tâche</a>
+        <a href="{{ path('\app_login')}}" class="w-full bg-white text-black p-1 rounded-md">Déconnexion</a>
        </div>
     </div>
- <details class="group bg-white border border-gray-200 rounded-lg shadow-sm w-64">
-    <summary class="flex items-center justify-between p-4 cursor-pointer list-none font-medium">
-        <span>📂 Mes Dossiers</span>
+    <div class="flex items-center gap-4">
+        <p>Filtres : </p>
+        <p>Status</p>
+         <details class="group bg-white border border-gray-200 rounded-lg shadow-sm w-64">
+         <summary class="flex items-center justify-between p-4 cursor-pointer list-none font-medium">
+        <span>Tous</span>
         <span class="transition group-open:rotate-180">▼</span>
-    </summary>
-
-    <div class="border-t border-gray-100 p-2 flex flex-col gap-1">
-        <a href="#" class="p-2 hover:bg-blue-50 rounded text-gray-700">Maison</a>
-        <a href="#" class="p-2 hover:bg-blue-50 rounded text-gray-700">Travail</a>
-        <a href="#" class="p-2 hover:bg-blue-50 rounded text-gray-700 text-red-500 font-semibold">+ Créer un dossier</a>
-    </div>
+         </summary>
+          <div class="border-t border-gray-100 p-2 px-2 py-4 flex flex-col items-start gap-1">
+        <a href="#" class="p-1 hover:bg-blue-50 rounded text-gray-700">En cours</a>
+        <a href="#" class="p-1 hover:bg-blue-50 rounded text-gray-700">Complétée</a>
+        <a href="#" class="p-1 hover:bg-blue-50 rounded text-gray-700">Archivée</a>
+          </div>
 </details>
+<p>Priorité</p>
+         <details class="group bg-white border border-gray-600 rounded-lg shadow-sm w-64">
+
+         <summary class="flex-row items-center justify-between p-4 cursor-pointer list-none font-medium">
+        <span>Toutes</span>
+        <span class="transition group-open:rotate-180">▼</span>
+         </summary>
+        <div class="border-t border-gray-100 p-2  px-2 py-4 flex flex-col gap-1">
+
+        <a href="#" class="p-1 hover:bg-blue-50 rounded text-gray-700">Urgent</a>
+        <a href="#" class="p-1 hover:bg-blue-50 rounded text-gray-700">Important</a>
+        <a href="#" class="p-1 hover:bg-blue-50 rounded text-gray-700">Normal</a>
+        </div>
+        </details>
+    </div>
+    
+    
+
+<div class="bg-violet-300 flex flex-col items-center">
+    <p>Lessive</p>
+    <p>Coder une fusée</p>
+    <p>Faire le ménage</p>
+    <p>Donner à manger au chat</p>
+    <p>Faire la vaisaille</p>
+</div>
+    </section>
 </div>
 {% endblock %}

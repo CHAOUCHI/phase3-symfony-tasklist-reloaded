@@ -23,6 +23,13 @@ class Task
     #[ORM\Column(enumType: taskstatus::class)]
     private ?taskstatus $status = null;
 
+    #[ORM\ManyToOne(inversedBy: 'tasks')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $owner = null;
+
+    #[ORM\ManyToOne(inversedBy: 'tasks')]
+    private ?Folder $Folder = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -60,6 +67,30 @@ class Task
     public function setStatus(taskstatus $status): static
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    public function getOwner(): ?User
+    {
+        return $this->owner;
+    }
+
+    public function setOwner(?User $owner): static
+    {
+        $this->owner = $owner;
+
+        return $this;
+    }
+
+    public function getFolder(): ?Folder
+    {
+        return $this->Folder;
+    }
+
+    public function setFolder(?Folder $Folder): static
+    {
+        $this->Folder = $Folder;
 
         return $this;
     }
