@@ -76,9 +76,11 @@
                 class="text-sm text-[#030213] bg-white border border-gray-200 rounded-lg px-3 py-1.5 pr-8 appearance-none cursor-pointer hover:border-gray-300 focus:outline-none focus:ring-1 focus:ring-[#030213]/20 transition-colors"
                 style="background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 fill=%22none%22 viewBox=%220 0 24 24%22 stroke=%22%23030213%22 stroke-width=%222%22%3E%3Cpath stroke-linecap=%22round%22 stroke-linejoin=%22round%22 d=%22M19 9l-7 7-7-7%22/%3E%3C/svg%3E'); background-repeat: no-repeat; background-position: right 8px center; background-size: 14px;">
                 <option value="" {{ app.request.query.get('status')=='' ? 'selected' : '' }}>Tous</option>
-                <option value="in_progress" {{ app.request.query.get('status')=='in_progress' ? 'selected' : '' }}>En
-                    cours</option>
+                <option value="pending" {{ app.request.query.get('status')=='pending' ? 'selected' : '' }}>En cours
+                </option>
                 <option value="completed" {{ app.request.query.get('status')=='completed' ? 'selected' : '' }}>Terminé
+                </option>
+                <option value="archived" {{ app.request.query.get('status')=='archived' ? 'selected' : '' }}>Archivé
                 </option>
             </select>
         </form>
@@ -152,16 +154,18 @@
             <a href="{{ path('app_folder_show', {'id': folder.id}) }}"
                 class="flex items-center justify-between gap-2 px-3 py-2 rounded-lg text-[#030213]/75 text-sm hover:bg-[#030213]/8 hover:text-[#030213] transition-colors">
                 <span class="flex items-center gap-2.5">
-                    <span class="w-2 h-2 rounded-full shrink-0" style="background-color: {{ folder.color ?? '#22c55e' }}"  ></span>
+                    <span class="w-2 h-2 rounded-full shrink-0"
+                        style="background-color: {{ folder.color ?? '#22c55e' }}"></span>
 
                     <svg class=" w-3.5 h-3.5 shrink-0 text-[#030213]/60" xmlns="http://www.w3.org/2000/svg" fill="none"
                         viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
-                        </svg>
-                        {{folder.name}}
-                    </span>
-                    <span class="bg-[#030213]/10 text-[#030213]/50 text-[11px] px-1.5 py-0.5 rounded-full">{{ taskCounts[folder.id] ?? 0 }}</span>
+                    </svg>
+                    {{folder.name}}
+                </span>
+                <span class="bg-[#030213]/10 text-[#030213]/50 text-[11px] px-1.5 py-0.5 rounded-full">{{
+                    taskCounts[folder.id] ?? 0 }}</span>
             </a>
             {% else %}
             <p class="text-xs text-[#030213]/30 px-3 py-2">Aucun dossier</p>
@@ -214,7 +218,12 @@
                                     priorité</span>
                                 {% endif %}
                             </div>
-                            <p class="text-sm text-gray-400">{{ task.status.value }}</p>
+                            <p class="text-sm text-gray-400">
+                                {% if task.status.value == 'pending' %}En cours
+                                {% elseif task.status.value == 'completed' %}Terminée
+                                {% elseif task.status.value == 'archived' %}Archivée
+                                {% endif %}
+                            </p>
                         </td>
                         <td class="pr-4 py-3 rounded-r-xl text-right">
                             <form method="post" action="{{ path('app_task_pin', {'id': task.id}) }}">
