@@ -16,6 +16,18 @@ class Folder
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
+    #[ORM\Column(length: 7, nullable: true)]
+    private ?string $color = '#22c55e';
+    public function getColor(): ?string
+    {
+        return $this->color;
+    }
+    public function setColor(?string $color): static
+    {
+        $this->color = $color;
+        return $this;
+    }
+
     #[ORM\ManyToOne(inversedBy: 'folders')]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;

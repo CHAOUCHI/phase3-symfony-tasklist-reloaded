@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+{% block title %}Nouveau dossier{% endblock %}
+{% block body %}
+
+<div class="min-h-screen bg-gray-50 flex items-center justify-center">
+    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-8 w-full max-w-md">
+
+        <h2 class="text-xl font-bold text-[#030213] mb-1">Nouveau dossier</h2>
+        <p class="text-sm text-gray-400 mb-6">Organisez vos tâches par projet</p>
+
+        {{ form_start(form, {'attr': {'class': 'flex flex-col gap-4'}}) }}
+
+            <div class="flex flex-col gap-1">
+                {{ form_label(form.name, null, {'label_attr': {'class': 'text-sm font-medium text-[#030213]/70'}}) }}
+                {{ form_widget(form.name, {'attr': {
+                    'class': 'border border-gray-200 rounded-lg px-3 py-2 text-sm text-[#030213] focus:outline-none focus:ring-1 focus:ring-[#030213]/20'
+                }}) }}
+                {{ form_errors(form.name) }}
+            </div>
+
+            <div class="flex flex-col gap-1">
+                {{ form_label(form.color, null, {'label_attr': {'class': 'text-sm font-medium text-[#030213]/70'}}) }}
+                <div class="flex items-center gap-3">
+                    {{ form_widget(form.color, {'attr': {
+                        'class': 'w-10 h-10 rounded-lg border border-gray-200 cursor-pointer p-0.5'
+                    }}) }}
+                    <span class="text-xs text-gray-400">Choisissez une couleur pour ce dossier</span>
+                </div>
+            </div>
+
+            <div class="flex gap-3 mt-2">
+                <a href="{{ path('app_task_index') }}"
+                   class="flex-1 text-center px-4 py-2 text-sm text-[#030213] border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
+                    Annuler
+                </a>
+                <button type="submit"
+                    class="flex-1 px-4 py-2 text-sm text-white bg-[#030213] rounded-lg hover:bg-[#030213]/85 transition-colors">
+                    Créer le dossier
+                </button>
+            </div>
+
+        {{ form_end(form) }}
+    </div>
+</div>
+
+{% endblock %}
