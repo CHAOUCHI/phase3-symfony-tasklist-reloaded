@@ -1,3 +1,14 @@
+# Ma réponse dasn cette partie du cahier des charges Readme.md 
+# Documenter le déploiement	Rédigez un Readme qui explique comment lancer l'application à partir d'un serveur ou d'un PC neuf
+
+
+
+
+
+
+
+# Cahier des charges ci-dessous
+
 # phase3-symfony-tasklist-reloaded
 Une application de gestion de tâches priorisées et organisées en dossiers. Développée avec Symfony.
 
