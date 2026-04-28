@@ -16,8 +16,11 @@ use App\Repository\FolderRepository;
 final class TaskController extends AbstractController
 {
     #[Route(name: 'app_task_index', methods: ['GET'])]
-    public function index(TaskRepository $taskRepository, FolderRepository $folderRepository): Response
+    public function index(Request $request, TaskRepository $taskRepository, FolderRepository $folderRepository): Response
     {
+        $status   = $request->query->get('status');
+        $priority = $request->query->get('priority');
+
         $folders = $folderRepository->findBy(['user' => $this->getUser()]);
         $taskCounts = [];
         foreach ($folders as $folder) {
@@ -25,7 +28,7 @@ final class TaskController extends AbstractController
         }
 
         return $this->render('task/index.html.twig', [
-            'tasks'      => $taskRepository->findAll(),
+            'tasks'      => $taskRepository->findByFilters($status, $priority),
             'folders'    => $folders,
             'taskCounts' => $taskCounts,
         ]);

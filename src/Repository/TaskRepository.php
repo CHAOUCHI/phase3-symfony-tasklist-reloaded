@@ -3,15 +3,20 @@
 namespace App\Repository;
 
 use App\Entity\Task;
+use App\Entity\Folder;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
-use App\Entity\Folder;
 
 /**
  * @extends ServiceEntityRepository<Task>
  */
 class TaskRepository extends ServiceEntityRepository
 {
+    public function __construct(ManagerRegistry $registry)
+    {
+        parent::__construct($registry, Task::class);
+    }
+
     public function countByFolder(Folder $folder): int
     {
         return $this->createQueryBuilder('t')
@@ -21,35 +26,23 @@ class TaskRepository extends ServiceEntityRepository
             ->getQuery()
             ->getSingleScalarResult();
     }
-    public function __construct(ManagerRegistry $registry)
+
+    public function findByFilters(?string $status, ?string $priority): array
     {
-        parent::__construct($registry, Task::class);
+        $qb = $this->createQueryBuilder('t')
+            ->orderBy('t.id', 'DESC');
+
+        if ($status) {
+            $qb->andWhere('t.status = :status')
+               ->setParameter('status', $status);
+        }
+
+        if ($priority) {
+            $qb->leftJoin('t.priority', 'p')
+               ->andWhere('p.level = :priority')
+               ->setParameter('priority', $priority);
+        }
+
+        return $qb->getQuery()->getResult();
     }
-
-
-
-    //    /**
-    //     * @return Task[] Returns an array of Task objects
-    //     */
-    //    public function findByExampleField($value): array
-    //    {
-    //        return $this->createQueryBuilder('t')
-    //            ->andWhere('t.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->orderBy('t.id', 'ASC')
-    //            ->setMaxResults(10)
-    //            ->getQuery()
-    //            ->getResult()
-    //        ;
-    //    }
-
-    //    public function findOneBySomeField($value): ?Task
-    //    {
-    //        return $this->createQueryBuilder('t')
-    //            ->andWhere('t.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->getQuery()
-    //            ->getOneOrNullResult()
-    //        ;
-    //    }
 }
