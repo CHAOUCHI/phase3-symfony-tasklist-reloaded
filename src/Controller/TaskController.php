@@ -10,15 +10,24 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use App\Repository\FolderRepository;
 
 #[Route('/task')]
 final class TaskController extends AbstractController
 {
     #[Route(name: 'app_task_index', methods: ['GET'])]
-    public function index(TaskRepository $taskRepository): Response
+    public function index(TaskRepository $taskRepository, FolderRepository $folderRepository): Response
     {
+        $folders = $folderRepository->findBy(['user' => $this->getUser()]);
+        $taskCounts = [];
+        foreach ($folders as $folder) {
+            $taskCounts[$folder->getId()] = $taskRepository->countByFolder($folder);
+        }
+
         return $this->render('task/index.html.twig', [
-            'tasks' => $taskRepository->findAll(),
+            'tasks'      => $taskRepository->findAll(),
+            'folders'    => $folders,
+            'taskCounts' => $taskCounts,
         ]);
     }
 

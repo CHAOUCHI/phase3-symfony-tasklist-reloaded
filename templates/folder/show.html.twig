@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ folder.name }}{% endblock %}
+{% block body %}
+
+<div class="flex bg-white items-center justify-between border-b border-gray-200 px-4 py-4 sm:px-6 lg:px-8">
+    <div class="min-w-0 flex-1 flex items-center gap-3">
+        <span class="w-3 h-3 rounded-full shrink-0"
+              style="background-color: {{ folder.color ?? '#22c55e' }}"></span>
+        <h1 class="text-2xl font-bold text-gray-900">{{ folder.name }}</h1>
+    </div>
+    <a href="{{ path('app_task_index') }}"
+       class="flex items-center gap-2 px-4 py-2 text-sm text-[#030213] border border-gray-200 rounded-md hover:bg-gray-50 transition-colors">
+        ← Retour
+    </a>
+</div>
+
+<div class="p-8 text-center text-gray-400 text-sm">
+    Ce dossier est vide pour l'instant.
+</div>
+
+{% endblock %}
